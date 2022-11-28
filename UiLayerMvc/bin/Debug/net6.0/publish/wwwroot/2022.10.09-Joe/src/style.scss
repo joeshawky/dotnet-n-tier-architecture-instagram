@@ -1,0 +1,257 @@
+@import "zero";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+html{
+	font-size: 100%;
+	font-family: 'Roboto', sans-serif;
+}
+body, html{
+	width: 100%;
+	height: 100%;
+}
+
+.img-blk{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	position: relative;
+
+	height: 3rem;
+	width: 3rem;
+
+	img{
+		position: relative;
+	
+		display: inline-block;
+
+		height: 2rem;
+
+		border-radius: 50%;
+		border: 2.5px #fff solid;
+	}
+
+	&::before{
+		content: '';
+		display: block;
+
+		height: 2.2rem;
+		width: 2.2rem;
+
+		position: absolute;
+
+		background: linear-gradient(42deg, rgba(232,190,82,1) 0%, rgba(200,62,92,1) 49%, rgba(178,38,170,1) 100%);;
+
+		border-radius: 50%;
+	}
+}
+
+.username{
+	font-size: .7rem;
+	font-weight: 500;
+	color: #2f2f2f;
+
+	margin-left: .5rem;
+
+}
+
+.post{
+	&__block{
+		width: 60%;
+		height: 95%;
+
+		background-color: #fff;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		display: flex;
+
+
+		&__content{
+			display: inline-block;
+
+			width: 45%;
+			height: 100%;
+
+			background-color: #2f2f2f;
+			background: #2f2f2f  center no-repeat;
+			background-size: contain;
+		}
+
+		&__textblock{
+			position: relative;
+
+			display: flex;
+			flex-direction: column;
+
+			width: 55%;
+			height: calc(100% - 9rem);
+
+			background-color: #fff;
+
+			&__desc, &__comments{
+				width: 100%;
+				height: 100px;
+			}
+			&__desc{			
+				height: max-content;
+
+				&__profileblock{
+					position: relative;
+
+					display: flex;
+					align-items: center;
+
+					// padding: .4rem;
+					height: 3rem;
+
+					border-bottom: 1px solid #eeeeee;
+
+					.username{
+						width: 90%;
+					}
+				}
+
+				&__content{
+					display: flex;
+					justify-content: space-between;
+
+					// padding: .4rem;
+
+					&__textblk{
+						width: 90%;
+
+						padding: .5rem 0;
+
+						margin-left: .5rem;
+
+						.username{
+							margin-left: auto;
+						}
+						pre{
+							display: inline;
+							font-size: .7rem;
+							color: #3c3c3c;
+							font-family: "Roboto", sans-serif;
+							// word-wrap: break-word;
+							white-space: pre-wrap;
+						}
+					}
+				}
+			}
+
+			&__comments{
+				display: flex;
+				flex-direction: column;
+
+				height: 100%;
+				// max-height: 15rem;
+				padding: .4rem;
+
+				overflow: scroll;
+
+				.link{
+					margin: .5rem 0;
+					font-size: .7rem;
+					font-weight: 500;
+					color: #3c3c3c;
+
+					span{
+						margin-right: .7rem;
+					}
+				}
+			}
+
+			&__user-panel{
+				bottom: -9rem;
+				
+				&, &__add-comment{
+					position: absolute;
+					left: 0;
+
+					width: 100%;
+
+					border-top: 1px solid #eeeeee;
+				}
+
+				min-height: 9rem;
+
+				padding: 1rem;
+
+				svg{
+					margin-right: .5rem;
+					width: 1.5rem;
+
+					cursor: pointer;
+				}
+				&__icons{
+					display: flex;
+					justify-content: space-between;
+
+				}
+				&__stats{
+					margin: 1rem 0 0 0;
+
+					.views{
+						font-size: .8rem;
+						font-weight: 500;
+						color: #2f2f2f;
+					}
+
+					.post-date{
+						margin-top: .5rem;
+						font-size: .6rem;
+						text-transform: uppercase;
+						color: #767676;
+					}
+				}
+				&__add-comment{
+					display: flex;
+					align-items: center;
+
+					min-height: 2.7rem;
+
+					padding:0 1rem;
+
+					textarea{
+						resize: none;
+						display: flex;
+						flex-grow: 1;
+
+						margin-top: 1rem;
+
+						width: 100%;
+						
+						min-height: 2rem;
+						max-height: 4rem;
+
+						font-size: .8rem;
+						// color: #767676;
+						color: #2f2f2f;
+					}
+
+					button{
+						cursor: pointer;
+						background-color: #fff;
+						color: rgb(37, 37, 74)
+					}
+				}
+
+			}
+		}
+	}
+
+	&, &_bg{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	&_bg{
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+}

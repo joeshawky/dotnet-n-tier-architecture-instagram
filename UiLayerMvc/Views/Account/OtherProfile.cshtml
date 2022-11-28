@@ -1,0 +1,58 @@
+﻿@model ModelViews.Concrete.ProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+  <head>
+    <link rel="stylesheet" href="~/profileTemplate/ProfileStyles.css" />
+  </head>
+  <main>
+      <header>
+        <div class="header-wrap">
+          <div class="profile-pic">
+            <img src="@Model.UserProfilePicturePath" alt="profile-logo" />
+          </div>
+          <div class="profile-info">
+            <div class="title row">
+              <h2>@Model.Username</h2>
+              <button class="primary">Follow</button>
+            </div>
+            <div class="desktop-only">
+              <div class="details row">
+                <ul>
+                  <li><span>@Model.Posts.Count()</span> posts</li>
+                  <li><span>xxx</span> followers</li>
+                  <li><span>xxx</span> following</li>
+                </ul>
+              </div>
+              <div class="descriptions row last">
+                <h1>@Model.Username</h1>
+                <span>
+                  @Model.Description
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+
+      <div class="desktop-only">
+        <div class="tabs">
+          
+        </div>
+      </div>
+     
+      <div class="gallery">
+          @foreach (var post in Model.Posts)
+          {
+              <div class="gallery-item">
+                  <a href="/post/view/@post.PostId">
+                        <img alt="gallery-post" src="@post.PostImagePath"/>
+                 </a>
+            </div>
+
+          }
+      </div>
+    </main>

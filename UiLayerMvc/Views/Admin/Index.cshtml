@@ -1,0 +1,38 @@
+﻿@using ModelViews.Concrete
+@model List<RiskyCommentViewModel>
+
+@{
+    ViewData["Title"] = "Admin home page";
+}
+<h4>@ViewData["Title"]</h4>
+
+<table class="table table-hover">
+    
+    <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>Comment Text</th>
+        <th>Post id</th>
+        <th>Creation time</th>
+        <th> <a class="btn btn-outline-info" href="/admin/ListOrderedByDate">Asc</a></th>
+        <th> <a class="btn btn-outline-info" href="/admin/ListOrderedByDateDecreasingly">Desc</a></th>
+        <th></th>
+        <th></th>
+    </tr>
+    
+    @foreach (var riskyComment in Model)
+    {
+        <tr>
+            <th>@riskyComment.Index</th>
+            <td>@riskyComment.Username</td>
+            <td>@riskyComment.CommentText</td>
+            <td>@riskyComment.PostId</td>
+            <td>@riskyComment.CommentDatetime</td>
+            <td style="text-align: right"><a class="btn btn-danger" href="/admin/RemoveComment?commentid=@riskyComment.CommentId">Delete</a></td>
+            <td style="text-align: right"><a class="btn btn-success" href="/admin/ApproveComment?commentid=@riskyComment.CommentId">Approve</a></td>
+        </tr>
+    }
+    
+
+
+</table>

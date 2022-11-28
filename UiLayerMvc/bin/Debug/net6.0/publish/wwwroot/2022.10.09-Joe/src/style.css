@@ -1,0 +1,272 @@
+@charset "UTF-8";
+/*Обнуление*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*--------------------*/
+.bigred {
+  font-size: 20px;
+  color: red;
+}
+
+/* end of file */
+html {
+  font-size: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+.img-blk {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 3rem;
+  width: 3rem;
+}
+.img-blk img {
+  position: relative;
+  display: inline-block;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2.5px #fff solid;
+}
+.img-blk::before {
+  content: "";
+  display: block;
+  height: 2.2rem;
+  width: 2.2rem;
+  position: absolute;
+  background: linear-gradient(42deg, rgb(232, 190, 82) 0%, rgb(200, 62, 92) 49%, rgb(178, 38, 170) 100%);
+  border-radius: 50%;
+}
+
+.username {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #2f2f2f;
+  margin-left: 0.5rem;
+}
+
+.post__block {
+  width: 60%;
+  height: 95%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+.post__block__content {
+  display: inline-block;
+  width: 45%;
+  height: 100%;
+  background-color: #2f2f2f;
+  background: #2f2f2f center no-repeat;
+  background-size: contain;
+}
+.post__block__textblock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  height: calc(100% - 9rem);
+  background-color: #fff;
+}
+.post__block__textblock__desc, .post__block__textblock__comments {
+  width: 100%;
+  height: 100px;
+}
+.post__block__textblock__desc {
+  height: max-content;
+}
+.post__block__textblock__desc__profileblock {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  border-bottom: 1px solid #eeeeee;
+}
+.post__block__textblock__desc__profileblock .username {
+  width: 90%;
+}
+.post__block__textblock__desc__content {
+  display: flex;
+  justify-content: space-between;
+}
+.post__block__textblock__desc__content__textblk {
+  width: 90%;
+  padding: 0.5rem 0;
+  margin-left: 0.5rem;
+}
+.post__block__textblock__desc__content__textblk .username {
+  margin-left: auto;
+}
+.post__block__textblock__desc__content__textblk pre {
+  display: inline;
+  font-size: 0.7rem;
+  color: #3c3c3c;
+  font-family: "Roboto", sans-serif;
+  white-space: pre-wrap;
+}
+.post__block__textblock__comments {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0.4rem;
+  overflow: scroll;
+}
+.post__block__textblock__comments::-webkit-scrollbar {
+    display: none;
+}
+.post__block__textblock__comments .link {
+  margin: 0.5rem 0;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #3c3c3c;
+}
+.post__block__textblock__comments .link span {
+  margin-right: 0.7rem;
+}
+.post__block__textblock__user-panel {
+  bottom: -9rem;
+  min-height: 9rem;
+  padding: 1rem;
+}
+.post__block__textblock__user-panel, .post__block__textblock__user-panel__add-comment {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #eeeeee;
+}
+.post__block__textblock__user-panel svg {
+  margin-right: 0.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+}
+.post__block__textblock__user-panel__icons {
+  display: flex;
+  justify-content: space-between;
+}
+.post__block__textblock__user-panel__stats {
+  margin: 1rem 0 0 0;
+}
+.post__block__textblock__user-panel__stats .views {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #2f2f2f;
+}
+.post__block__textblock__user-panel__stats .post-date {
+  margin-top: 0.5rem;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: #767676;
+}
+.post__block__textblock__user-panel__add-comment {
+  display: flex;
+  align-items: center;
+  min-height: 2.7rem;
+  padding: 0 1rem;
+}
+.post__block__textblock__user-panel__add-comment textarea {
+  resize: none;
+  display: flex;
+  flex-grow: 1;
+  margin-top: 1rem;
+  width: 100%;
+  min-height: 2rem;
+  max-height: 4rem;
+  font-size: 0.8rem;
+  color: #2f2f2f;
+}
+.post__block__textblock__user-panel__add-comment button {
+  cursor: pointer;
+  background-color: #fff;
+  color: rgb(37, 37, 74);
+}
+.post, .post_bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.post_bg {
+  background-color: rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,7 @@
+﻿{
+  "ConnectionStrings": {
+    //"defaultConnection": "Server=host.docker.internal;Database=CleanInstagramTest;User Id=sa;Password=OhWq+vqIlUSKoqFMhWt3Uw==;Trusted_Connection=False;MultipleActiveResultSets=true"
+    //"defaultConnection": "Server=127.0.0.1;Database=CleanInstagramTest;User Id=sa;Password=OhWq+vqIlUSKoqFMhWt3Uw==;Trusted_Connection=False;MultipleActiveResultSets=true"
+     "defaultConnection": "Server=(localdb)\\mssqllocaldb;Database=CleanInstagramTest;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+}

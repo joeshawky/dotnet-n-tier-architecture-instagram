@@ -1,0 +1,16 @@
+﻿{
+  "ConnectionStrings": {
+    "defaultConnection": "Server=(localdb)\\mssqllocaldb;Database=CleanInstagramTest;Trusted_Connection=True;MultipleActiveResultSets=true"
+
+  },
+  "profileImages": {
+    "OriginalProfileImage": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}

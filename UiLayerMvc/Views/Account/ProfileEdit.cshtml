@@ -1,0 +1,46 @@
+﻿
+@model ModelViews.Concrete.EditProfileModelView
+
+@{
+    ViewData["Title"] = "Edit profile";
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+
+<form method="post" asp-controller="Account" asp-action="ProfileEdit" enctype="multipart/form-data">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger-small"></div>
+
+    <div class="form-group input-user input-user-username">
+        <label asp-for="Username" class="form-label"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <br />
+
+    <div class="form-group input-user">
+        <label asp-for="Description" class="form-label"></label>
+        <textarea asp-for="Description" class="form-control"> </textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <br />
+
+    <div class="form-group profile-picture-submit">
+        <label asp-for="ProfilePicture" class="form-label"></label>
+        <input asp-for="ProfilePicture" type="file" class="form-control" />
+        <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+    </div>
+
+    <input asp-for="UserId" hidden />
+
+    <div class="form-group current-profile-picture">
+        <img width="350" height="350" src="@Model.ImagePath" />
+        @*<img width="350" height="350" src="https://s3.getstickerpack.com/storage/uploads/sticker-pack/random-stickers-2/4.png?04145280c559942a96ca44353c032ccc&d=200x200" />*@
+    </div>
+    
+    
+
+    <button class="btn btn-primary">Save</button>
+
+
+</form>

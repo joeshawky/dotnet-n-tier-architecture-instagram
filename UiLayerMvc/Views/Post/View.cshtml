@@ -1,0 +1,333 @@
+﻿@using System.Security.Claims
+@model ModelViews.Concrete.PostDisplayViewModel
+@{
+    ViewData["Title"] = "View post";
+}
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+</head>
+
+<div class="post">
+	<div class="post_bg">
+		<div class="post__block">
+            <a href="/home/homepage" class="btn-close " style="position: absolute; background-color: red"></a>
+
+            <div class="post__block__content" style="background-image: url('@Model.PostImagePath')">
+
+			</div>
+
+			<div class="post__block__textblock">
+
+
+				<div class="post__block__textblock__comments">
+					<div class="post__block__textblock__desc">
+						<div class="post__block__textblock__desc__profileblock">
+
+							<div class="img-blk">
+								<img src="@Model.PostMakerProfilePicturePath"alt="">
+							</div>
+
+							<strong class="username">@Model.PostMakerUsername</strong>
+
+						</div> <!--*post__block__textblock__desc__profileblock-->
+
+
+						<div class="post__block__textblock__desc__content">
+							<div class="img-blk">
+								<img src="@Model.PostMakerProfilePicturePath" alt="">
+							</div>
+
+							<div class="post__block__textblock__desc__content__textblk">
+								<strong class="username">@Model.PostMakerUsername </strong><pre>@Model.PostDescription
+								</pre>
+
+							</div>
+						</div>
+                    </div> <!--post__block__textblock__desc-->
+					
+					
+					@foreach (var comment in Model.PostComments)
+					{
+					    <div class="post__block__textblock__comments__commentblk">	
+                            <div class="post__block__textblock__desc__content">
+                                <div class="img-blk">
+                                    <img src="@comment.CommentMakerProfilePicturePath" alt="">
+                                </div>
+
+                                <div class="post__block__textblock__desc__content__textblk">
+                                    <strong class="username">@comment.CommentMakerUsername </strong><pre>@comment.CommentText</pre>
+                                    <div class="link">
+                                        <span>@comment.CommentCreationTime</span>
+                                        <span class="comment-likes-count">@comment.CommentLikes likes</span>
+                                        <span>Cevap</span>
+										@if (User.Identity.IsAuthenticated)
+										{
+										    @if (User.FindFirst(ClaimTypes.NameIdentifier).Value.Equals(comment.CommentMakerId))
+										    {
+												<button data-comment-id="@comment.CommentId" class="bg-white comment-remove-btn" style="color: red"><span>Remove</span></button>
+										    }
+										}
+										
+                                    </div>
+                                    
+                                </div>
+                                <div>
+                                    <button class="comment-like-btn bg-transparent" data-comment-id = @comment.CommentId>
+
+                                        <svg class="heart-color" color="#000" fill="@comment.HeartColor" height="20"  viewBox="0 0 24 24" width="24"><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z"></path></svg>
+                            
+                                    </button>
+                                </div>
+                            </div>
+							
+                            
+
+                        </div>
+					}
+
+
+                </div> <!--*post__block__textblock__comments-->
+
+				<div class="post__block__textblock__user-panel">
+					<div class="post__block__textblock__user-panel__icons">
+                        <div> <!--#f44336  #262626   #000-->
+                            <button class="post-like-btn bg-transparent" data-post-id = @Model.PostId>
+
+							<svg class="heart-color" color="#000" fill="@Model.HeartColor" height="24"  viewBox="0 0 24 24" width="24"><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z"></path></svg>
+                            
+                            </button>
+
+							<svg aria-label="Комментировать" class="_ab6-" color="#000" fill="#000" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
+
+							<svg aria-label="Поделиться публикацией" class="_ab6-" color="#000" fill="#000" height="24" role="img" viewBox="0 0 24 24" width="24"><line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon></svg>
+						</div>
+                        <button class="post-save-btn bg-transparent" data-post-id = @Model.PostId>
+                            <svg aria-label="Сохранить" class="save-color" color="@Model.SaveIconColor" fill="@Model.SaveIconColor" height="24" role="img" viewBox="0 0 24 24" width="24"><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon></svg>
+                        </button>
+
+					</div>
+					<div class="post__block__textblock__user-panel__stats">
+						@*<p class="views"><span>xxx</span> views</p>*@
+						<p class="views" ><span>@Model.PostLikesCount</span> likes</p>
+						<p class="post-date">
+							<span class="post-date__time-digit">@Model.PostCreationTime</span>
+					</div>
+					<div class="post__block__textblock__user-panel__add-comment">
+						<svg class="_ab6-" color="#000" fill="#000" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M15.83 10.997a1.167 1.167 0 1 0 1.167 1.167 1.167 1.167 0 0 0-1.167-1.167Zm-6.5 1.167a1.167 1.167 0 1 0-1.166 1.167 1.167 1.167 0 0 0 1.166-1.167Zm5.163 3.24a3.406 3.406 0 0 1-4.982.007 1 1 0 1 0-1.557 1.256 5.397 5.397 0 0 0 8.09 0 1 1 0 0 0-1.55-1.263ZM12 .503a11.5 11.5 0 1 0 11.5 11.5A11.513 11.513 0 0 0 12 .503Zm0 21a9.5 9.5 0 1 1 9.5-9.5 9.51 9.51 0 0 1-9.5 9.5Z"></path></svg>
+						<textarea class="comment-text" type="text" placeholder="Add a comment..."></textarea>
+						<button class="post-comment-btn" data-post-id="@Model.PostId">Post</button>
+					</div>
+				</div>
+
+			</div> <!--post__block__textblock-->
+
+		</div> <!--post__block-->
+	</div>
+</div>
+
+@section Scripts
+{
+    <script>
+	//$(document).ready(function(){
+	//	MakeClaim();
+	//});
+	$(document).ready(MakeClaim);
+	
+
+	function MakeClaim()
+	{
+		let userId = 0;
+		console.log("Entered");
+        $.ajax({
+                url: "/api/users/getcurrentuserid",
+                type: "GET",
+                success: function(data){
+                    userId = data;
+                }
+        });
+			
+			$('.post-save-btn').click(function(){
+				let postId = $(this).attr('data-post-id');
+				let svgIcon = $(this).children('.save-color');
+				if (userId !== 0) {
+					$.ajax({
+						url: "/api/saves/PostSave?postid=" + postId + "&userid=" + userId,
+						type: "POST",
+						success: function (data) {
+							if (data === 'Post Saved') {
+								svgIcon.attr('fill', '#f44336');
+								svgIcon.attr('color', '#f44336');
+							}
+							else {
+								svgIcon.attr('fill', '#262626');
+								svgIcon.attr('color', '#262626');
+							}
+						}
+					});
+
+				}
+			});
+			
+			$('.post-comment-btn').click(function(){
+				 if (userId !== 0)
+				{
+
+					let postId = $(this).attr('data-post-id');
+					let commentText = $(this).siblings('.comment-text');
+					let postCommentVm = 
+					{
+						commenterUserId: userId,
+						postId : postId
+					};
+					let commentTextInput = commentText.val();
+					
+					if(commentTextInput)
+					{
+						postCommentVm.commentText = commentTextInput;
+						commentText.val('');
+						$.ajax({
+							url: "/api/comments/postcomment",
+							contentType: "application/json; charset=utf-8",
+							type: "POST",
+							data: JSON.stringify(postCommentVm),
+							success: function(data){
+								commentText.val('');
+								
+								let info = {
+								    commentId: data
+								};
+								let commenterInfo = $.ajax({
+									url: "/api/comments/GetCommentInfo?userid=" + userId + "&postid=" + postId,
+									type: "GET",
+									dataType: "json",
+									success: function(data){
+										info.username = data.username;
+									    info.profilePicture = data.profilePicturePath;
+										let commentBlock = '<div class="post__block__textblock__comments__commentblk">	' +
+										'<div class="post__block__textblock__desc__content">' +
+											'<div class="img-blk">' +
+												'<img src="' + info.profilePicture +'" alt="">' +
+												'</div>' +
+
+												'<div class="post__block__textblock__desc__content__textblk">' +
+													'<strong class="username">' + info.username + '</strong><pre> ' + commentTextInput  + '</pre>' +
+											'<div class="link"><span>1 seconds ago</span><span class="comment-likes-count"> 0 likes</span><span>Cevap</span> <button data-comment-id= "' + info.commentId + '"class="bg-white comment-remove-btn" style = "color: red;"> <span>Remove</span></button > </div>' +
+											'</div>' +
+
+											'<div> ' +
+											'<button class="comment-like-btn bg-transparent" data-comment-id =' + info.commentId +'>' +
+											'<svg class="heart-color" color = "#000" fill = "#262626" height = "20"  viewBox = "0 0 24 24" width = "24" > <path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z" > </path></svg >' +
+
+													'</button> </div>' +
+											'</div>' +
+										'</div>';
+									$('.post__block__textblock__comments').append(commentBlock);
+									
+									
+									
+									}
+								});
+
+								
+								
+								
+								
+								
+							}
+						});
+					}
+
+				}
+				//setTimeout(MakeClaim, 1000);
+				//MakeClaim();
+
+			
+			});
+
+			$('.post-like-btn').click(function(){
+				let likes = $(this).parent().parent().siblings('.post__block__textblock__user-panel__stats').children('.views');
+				let likedColor = $(this).children('.heart-color');//#f44336, #262626
+				let postId = $(this).attr('data-post-id');
+				if (userId !== 0)
+				{
+
+					$.ajax({
+					url: "/api/likes/postlike?postid=" + postId + "&userid=" + userId,
+					type: "POST",
+					success: function(data){
+						if (data === 'Post Liked')
+						{
+							let currentLikes = parseInt(likes.text().charAt(0));
+							likes.text(currentLikes + 1 + ' likes');
+							likedColor.attr('fill', '#f44336');
+						}
+						else
+						{
+							let currentLikes = parseInt(likes.text().charAt(0));
+
+							likes.text(currentLikes - 1 + ' likes');
+							likedColor.attr('fill', '#262626');
+						}
+						}
+				    });
+
+				}
+			});    	
+	    
+			$('.comment-remove-btn').click(function(){
+				if (userId !== 0) {
+					let div = $(this).parent().parent().parent().parent('.post__block__textblock__comments__commentblk');
+					let commentId = $(this).attr("data-comment-id");
+					$.ajax({
+						url: "/api/comments/RemoveComment?commentid=" + commentId + "&userid=" + userId,
+						type: "DELETE",
+						success: function (data) {
+							div.remove();
+						},
+						error: function(a, b, c){
+						}
+					});
+
+				}
+			});
+
+			//$('.comment-like-btn').click(function(){
+			$('.post__block__textblock').on('click', '.comment-like-btn', function(){
+			let likes = $(this).parent().siblings('.post__block__textblock__desc__content__textblk').children('.link').children('.comment-likes-count');
+			console.log("Likes: " + likes.text());
+			let likedColor = $(this).children('.heart-color');//#f44336, #262626
+			let commentId = $(this).attr('data-comment-id');
+			if (userId !== 0)
+			{
+				$.ajax({
+				url: "/api/likes/commentlike?commentid=" + commentId + "&userid=" + userId,
+				type: "POST",
+				success: function(data){
+					if (data === 'Comment Liked')
+					{
+
+						let currentLikes = parseInt(likes.text().trim().charAt(0));
+						console.log(currentLikes);
+
+						likes.text(currentLikes + 1 + ' likes');
+						likedColor.attr('fill', '#f44336');
+					}
+					else
+					{
+						let currentLikes = parseInt(likes.text().charAt(0));
+								console.log(currentLikes);
+								likes.text(currentLikes - 1 + ' likes');
+						likedColor.attr('fill', '#262626');
+					}
+					}
+				});
+			}
+			});    	
+
+	}
+    </script>
+}

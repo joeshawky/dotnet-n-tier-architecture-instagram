@@ -1,0 +1,3 @@
+c:\testpublish\EntityLayer.dll
+c:\testpublish\EntityLayer.deps.json
+c:\testpublish\EntityLayer.pdb

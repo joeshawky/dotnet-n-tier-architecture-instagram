@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = "_AdminLayout";
+}
+
+
+
+
+
+<div class="content">
+
+    <!-- Recent Sales Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="bg-secondary text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Users count: xx</h6>
+            </div>
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                        <tr class="text-white">
+                            <th scope="col">#</th>
+                            <th scope="col">User Id</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Account creation date</th>
+                            <th scope="col">Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>index</th>
+                            <th>1</th>
+                            <th>bla bla</th>
+                            <th>12 may</th>
+                            <th>user, admin</th>
+                        </tr>
+                        @*@foreach (var riskyComment in Model)
+                        {
+                            <tr>
+                                <th>@riskyComment.Index</th>
+                                <td>@riskyComment.Username</td>
+                                <td>@riskyComment.CommentText</td>
+                                <td>@riskyComment.PostId</td>
+                                <td>@riskyComment.CommentDatetime</td>
+                            </tr>
+                        }*@
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Recent Sales End -->
+
+
+</div>
+
+
+
+@section Scripts{
+    <script>
+
+        document.getElementsByClassName('nav-link nav-item')[2].classList.add('active');
+
+    </script>
+}
+

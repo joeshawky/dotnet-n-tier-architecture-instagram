@@ -1,0 +1,64 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.input-validation-error {
+    border: 1px solid red;
+}
+
+.validation-summary-errors ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.profile-picture-submit {
+    width: 25%;
+    margin: 0;
+    margin-bottom: 80px;
+}
+
+.current-profile-picture {
+    position: absolute;
+    left: 70%;
+    float: right;
+    bottom: 53%;
+    background-color: red;
+}
+
+.input-user {
+    width: 70%;
+}
+
+#chat-messages-main-block {
+    height: 680px;
+}
+
+pre {
+    font-family: var(--bs-body-font-family);
+    margin-bottom: auto;
+    font-size: 14px;
+    line-height: normal;
+    /*background-color: yellow;*/
+}
+.font-weight-bold{
+    font-weight: bold;
+}

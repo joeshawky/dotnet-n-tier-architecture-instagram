@@ -1,0 +1,64 @@
+﻿@using ModelViews.Concrete
+@model List<RiskyCommentViewModel>
+
+@{
+    Layout = "_AdminLayout";
+}
+
+
+<div class="content">
+ 
+
+    
+            <!-- Recent Sales Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Comments count: @Model.Count</h6>
+                <a class="btn btn-outline-info" href="/admin/ListOrderedByDate">Asc</a>
+                <a class="btn btn-outline-info" href="/admin/ListOrderedByDateDecreasingly">Desc</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-white">
+                                    <th scope="col">#</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Comment Text</th>
+                                    <th scope="col">Post id</th>
+                                    <th scope="col">Creation time</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var riskyComment in Model)
+                            {
+                                <tr>
+                                    <th>@riskyComment.Index</th>
+                                    <td>@riskyComment.Username</td>
+                                    <td>@riskyComment.CommentText</td>
+                                    <td>@riskyComment.PostId</td>
+                                    <td>@riskyComment.CommentDatetime</td>
+                                    <td style="text-align: left"><a class="btn btn-primary m-2" href="/admin/RemoveComment?commentid=@riskyComment.CommentId">Delete</a></td>
+                                    <td style="text-align: left"><a class="btn btn-success m-2" href="/admin/ApproveComment?commentid=@riskyComment.CommentId">Approve</a></td>
+                                </tr>
+                            }
+                      
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Recent Sales End -->
+
+
+</div>
+
+@section Scripts{
+    <script>
+
+        document.getElementsByClassName('nav-link nav-item')[1].classList.add('active');
+
+    </script>
+}

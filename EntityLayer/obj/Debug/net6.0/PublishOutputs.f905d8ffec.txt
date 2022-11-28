@@ -1,0 +1,3 @@
+C:\Users\Joe\Desktop\CS\InstagramTestCleanCode\EntityLayer\bin\Debug\net6.0\publish\EntityLayer.dll
+C:\Users\Joe\Desktop\CS\InstagramTestCleanCode\EntityLayer\bin\Debug\net6.0\publish\EntityLayer.deps.json
+C:\Users\Joe\Desktop\CS\InstagramTestCleanCode\EntityLayer\bin\Debug\net6.0\publish\EntityLayer.pdb

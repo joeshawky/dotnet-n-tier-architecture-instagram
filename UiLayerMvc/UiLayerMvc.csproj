@@ -1,0 +1,155 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Admin\Mainpage.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj" />
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
+    <ProjectReference Include="..\ModelViews\ModelViews.csproj" />
+    <ProjectReference Include="..\SignalRDemo\SignalRDemo.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\profileTemplate\.codesandbox\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Admin\Mainpage.cshtml" />
+    <None Include="wwwroot\Admin\js\main.js" />
+    <None Include="wwwroot\Admin\lib\chart\chart.min.js" />
+    <None Include="wwwroot\Admin\lib\easing\easing.js" />
+    <None Include="wwwroot\Admin\lib\easing\easing.min.js" />
+    <None Include="wwwroot\Admin\lib\owlcarousel\LICENSE" />
+    <None Include="wwwroot\Admin\lib\owlcarousel\owl.carousel.js" />
+    <None Include="wwwroot\Admin\lib\owlcarousel\owl.carousel.min.js" />
+    <None Include="wwwroot\Admin\lib\tempusdominus\js\moment-timezone.min.js" />
+    <None Include="wwwroot\Admin\lib\tempusdominus\js\moment.min.js" />
+    <None Include="wwwroot\Admin\lib\tempusdominus\js\tempusdominus-bootstrap-4.js" />
+    <None Include="wwwroot\Admin\lib\tempusdominus\js\tempusdominus-bootstrap-4.min.js" />
+    <None Include="wwwroot\Admin\lib\waypoints\links.php" />
+    <None Include="wwwroot\Admin\lib\waypoints\waypoints.min.js" />
+    <None Include="wwwroot\Admin\scss\bootstrap.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\bootstrap-grid.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\bootstrap-reboot.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\bootstrap-utilities.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\bootstrap.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\forms\_floating-labels.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\forms\_form-check.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\forms\_form-control.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\forms\_form-range.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\forms\_form-select.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\forms\_form-text.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\forms\_input-group.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\forms\_labels.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\forms\_validation.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\helpers\_clearfix.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\helpers\_colored-links.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\helpers\_position.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\helpers\_ratio.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\helpers\_stretched-link.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\helpers\_text-truncation.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\helpers\_visually-hidden.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_alert.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_border-radius.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_box-shadow.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_breakpoints.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_buttons.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_caret.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_clearfix.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_color-scheme.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_container.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_deprecate.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_forms.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_gradients.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_grid.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_image.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_list-group.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_lists.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_pagination.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_reset-text.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_resize.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_table-variants.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_text-truncate.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_transition.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_utilities.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\mixins\_visually-hidden.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\utilities\_api.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\vendor\_rfs.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_accordion.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_alert.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_badge.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_breadcrumb.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_button-group.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_buttons.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_card.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_carousel.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_close.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_containers.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_dropdown.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_forms.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_functions.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_grid.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_helpers.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_images.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_list-group.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_mixins.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_modal.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_nav.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_navbar.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_offcanvas.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_pagination.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_popover.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_progress.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_reboot.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_root.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_spinners.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_tables.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_toasts.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_tooltip.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_transitions.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_type.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_utilities.scss" />
+    <None Include="wwwroot\Admin\scss\bootstrap\scss\_variables.scss" />
+    <None Include="wwwroot\profileTemplate\common.css" />
+    <None Include="wwwroot\profileTemplate\images\gallery-1.jpg" />
+    <None Include="wwwroot\profileTemplate\images\gallery-2.jpg" />
+    <None Include="wwwroot\profileTemplate\images\gallery-3.jpg" />
+    <None Include="wwwroot\profileTemplate\images\gallery-4.jpg" />
+    <None Include="wwwroot\profileTemplate\images\gallery-5.jpg" />
+    <None Include="wwwroot\profileTemplate\images\gallery-6.jpg" />
+    <None Include="wwwroot\profileTemplate\images\icons-2.png" />
+    <None Include="wwwroot\profileTemplate\images\icons.png" />
+    <None Include="wwwroot\profileTemplate\images\logo.png" />
+    <None Include="wwwroot\profileTemplate\images\profile-logo.jpg" />
+    <None Include="wwwroot\profileTemplate\images\story-1.jpg" />
+    <None Include="wwwroot\profileTemplate\images\story-10.jpg" />
+    <None Include="wwwroot\profileTemplate\images\story-11.jpg" />
+    <None Include="wwwroot\profileTemplate\images\story-2.jpg" />
+    <None Include="wwwroot\profileTemplate\images\story-3.jpg" />
+    <None Include="wwwroot\profileTemplate\images\story-4.jpg" />
+    <None Include="wwwroot\profileTemplate\images\story-5.jpg" />
+    <None Include="wwwroot\profileTemplate\images\story-6.jpg" />
+    <None Include="wwwroot\profileTemplate\images\story-7.jpg" />
+    <None Include="wwwroot\profileTemplate\images\story-8.jpg" />
+    <None Include="wwwroot\profileTemplate\images\story-9.jpg" />
+    <None Include="wwwroot\profileTemplate\index.html" />
+    <None Include="wwwroot\profileTemplate\ProfileStyles.css" />
+    <None Include="wwwroot\profileTemplate\reset.css" />
+  </ItemGroup>
+
+</Project>
