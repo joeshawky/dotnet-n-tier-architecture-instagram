@@ -32,7 +32,10 @@ public class UserMapper : Profile
             .ForMember(destination => destination.UserProfilePicturePath, operation => operation.MapFrom(source => source.ProfileImage.ImagePath))
             .ForMember(destination => destination.PostCount, operation => operation.MapFrom(source => _postManager.GetList(source).Count));
 
-
+        CreateMap<User, UserDto>()
+            .ForMember(destination => destination.ProfilePicturePath, operation => operation.MapFrom(source => source.ProfileImage.ImagePath))
+            .ForMember(destination => destination.CreationDate, operation => operation.MapFrom(source => source.DateTime))
+            .ForMember(destination => destination.Role, operation => operation.MapFrom(source => source.UserRole));
 
 
 

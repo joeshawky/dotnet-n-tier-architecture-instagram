@@ -132,16 +132,24 @@
 @section Scripts
 {
     <script>
-	//$(document).ready(function(){
-	//	MakeClaim();
-	//});
+	
+
+	let fadedArea = document.querySelector('.post_bg');
+			fadedArea.addEventListener('click', e => {
+				if (e.target.className.includes('post__block') == false) {
+				let exitBtn = document.querySelector('.btn-close');
+				exitBtn.click();
+				}
+			})
+
+
+
 	$(document).ready(MakeClaim);
 	
 
 	function MakeClaim()
 	{
 		let userId = 0;
-		console.log("Entered");
         $.ajax({
                 url: "/api/users/getcurrentuserid",
                 type: "GET",
@@ -205,8 +213,9 @@
 									type: "GET",
 									dataType: "json",
 									success: function(data){
-										info.username = data.username;
-									    info.profilePicture = data.profilePicturePath;
+
+										info.username = data.commentMakerUsername;
+										info.profilePicture = data.commentMakerProfilePicturePath;
 										let commentBlock = '<div class="post__block__textblock__comments__commentblk">	' +
 										'<div class="post__block__textblock__desc__content">' +
 											'<div class="img-blk">' +
@@ -276,9 +285,8 @@
 				    });
 
 				}
-			});    	
-	    
-			$('.comment-remove-btn').click(function(){
+			});
+			$('.post__block__textblock__comments').on('click', '.comment-remove-btn', function(){
 				if (userId !== 0) {
 					let div = $(this).parent().parent().parent().parent('.post__block__textblock__comments__commentblk');
 					let commentId = $(this).attr("data-comment-id");
@@ -288,17 +296,15 @@
 						success: function (data) {
 							div.remove();
 						},
-						error: function(a, b, c){
+						error: function (a, b, c) {
 						}
 					});
 
 				}
 			});
 
-			//$('.comment-like-btn').click(function(){
 			$('.post__block__textblock').on('click', '.comment-like-btn', function(){
 			let likes = $(this).parent().siblings('.post__block__textblock__desc__content__textblk').children('.link').children('.comment-likes-count');
-			console.log("Likes: " + likes.text());
 			let likedColor = $(this).children('.heart-color');//#f44336, #262626
 			let commentId = $(this).attr('data-comment-id');
 			if (userId !== 0)
@@ -311,7 +317,6 @@
 					{
 
 						let currentLikes = parseInt(likes.text().trim().charAt(0));
-						console.log(currentLikes);
 
 						likes.text(currentLikes + 1 + ' likes');
 						likedColor.attr('fill', '#f44336');
@@ -319,8 +324,7 @@
 					else
 					{
 						let currentLikes = parseInt(likes.text().charAt(0));
-								console.log(currentLikes);
-								likes.text(currentLikes - 1 + ' likes');
+						likes.text(currentLikes - 1 + ' likes');
 						likedColor.attr('fill', '#262626');
 					}
 					}
@@ -328,6 +332,7 @@
 			}
 			});    	
 
+			
 	}
     </script>
 }

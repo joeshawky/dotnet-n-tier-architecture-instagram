@@ -929,6 +929,78 @@
       "PackagePath": "staticwebassets\\profileTemplate\\reset.css"
     },
     {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\.babelrc",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\.babelrc"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\.eslintrc.js",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\.eslintrc.js"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\.gitignore",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\.gitignore"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\.travis.yml",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\.travis.yml"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\LICENSE.md",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\__tests__\\helpers.test.js",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\__tests__\\helpers.test.js"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\__tests__\\index.tests.js",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\__tests__\\index.tests.js"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\demo\\demo.js",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\demo\\demo.js"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\demo\\index.html",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\demo\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\dist\\notifications.css",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\dist\\notifications.css"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\dist\\notifications.js",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\dist\\notifications.js"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\package.json",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\package.json"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\readme.md",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\readme.md"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\src\\helpers.js",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\src\\helpers.js"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\src\\index.js",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\src\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\src\\polyfills\\classList.js",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\src\\polyfills\\classList.js"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\src\\style.scss",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\src\\style.scss"
+    },
+    {
+      "Id": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\wwwroot\\styled-notifications-master\\webpack.config.js",
+      "PackagePath": "staticwebassets\\styled-notifications-master\\webpack.config.js"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.UiLayerMvc.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

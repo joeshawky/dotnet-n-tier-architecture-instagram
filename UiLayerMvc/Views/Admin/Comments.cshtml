@@ -3,6 +3,7 @@
 
 @{
     Layout = "_AdminLayout";
+    var count = 1;
 }
 
 
@@ -35,7 +36,7 @@
                             @foreach (var riskyComment in Model)
                             {
                                 <tr>
-                                    <th>@riskyComment.Index</th>
+                                <th>@count</th>
                                     <td>@riskyComment.Username</td>
                                     <td>@riskyComment.CommentText</td>
                                     <td>@riskyComment.PostId</td>
@@ -43,6 +44,7 @@
                                     <td style="text-align: left"><a class="btn btn-primary m-2" href="/admin/RemoveComment?commentid=@riskyComment.CommentId">Delete</a></td>
                                     <td style="text-align: left"><a class="btn btn-success m-2" href="/admin/ApproveComment?commentid=@riskyComment.CommentId">Approve</a></td>
                                 </tr>
+                                count++;
                             }
                       
                             </tbody>

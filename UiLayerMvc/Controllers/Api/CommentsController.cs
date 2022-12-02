@@ -75,13 +75,13 @@ public class CommentsController : ControllerBase
     }
 
     [HttpGet("GetCommentInfo")]
-    public CommentViewModel GetCommentInfo(int userId, int postId)
+    public IActionResult GetCommentInfo(int userId, int postId)
     {
-        var user = _userManager.GetById(userId);
-        var commenterInfo = _commentMapper.Map<CommentViewModel>(user);
+        var userComment = _commentManager.GetByUserPostId(userId, postId);
+        var commenterInfo = _commentMapper.Map<CommentViewModel>(userComment);
         commenterInfo.CommentId = _commentManager.GetByUserPostId(userId, postId).CommentId;
 
-        return commenterInfo;
+        return Ok(commenterInfo);
     }
 
 

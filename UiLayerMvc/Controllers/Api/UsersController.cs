@@ -33,7 +33,7 @@ public class UsersController : ControllerBase
             return BadRequest("User not found");
 
 
-        var userDto = new UserDto()
+        var userDto = new UserDtoWithId()
         {
             UserId = user.UserId,
             Username = user.Username,

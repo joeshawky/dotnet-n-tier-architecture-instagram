@@ -1,9 +1,10 @@
-﻿
+﻿@using ModelViews.Concrete
+@model List<UserDto>
 @{
     Layout = "_AdminLayout";
+    var selectItems = (List<SelectListItem>) ViewData["RolesSelectItems"];
+    var count = 1;
 }
-
-
 
 
 
@@ -13,37 +14,41 @@
     <div class="container-fluid pt-4 px-4">
         <div class="bg-secondary text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
-                <h6 class="mb-0">Users count: xx</h6>
+                <h6 class="mb-0">Users count: @Model.Count</h6>
             </div>
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
                         <tr class="text-white">
                             <th scope="col">#</th>
-                            <th scope="col">User Id</th>
                             <th scope="col">Username</th>
                             <th scope="col">Account creation date</th>
-                            <th scope="col">Role</th>
+                            <th scope="col">Current role</th>
+                            <th scope="col">New role</th>
+                            <th scope="col">Save changes</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>index</th>
-                            <th>1</th>
-                            <th>bla bla</th>
-                            <th>12 may</th>
-                            <th>user, admin</th>
-                        </tr>
-                        @*@foreach (var riskyComment in Model)
+                        
+                        @foreach (var user in Model)
                         {
+
                             <tr>
-                                <th>@riskyComment.Index</th>
-                                <td>@riskyComment.Username</td>
-                                <td>@riskyComment.CommentText</td>
-                                <td>@riskyComment.PostId</td>
-                                <td>@riskyComment.CommentDatetime</td>
+                                <th>@count</th>
+                                <td>@user.Username</td>
+                                <td>@user.CreationDate</td>
+                                <td>@user.Role</td>
+                                <td>
+                                    <select class="form-select" asp-items="selectItems"></select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-info m-2 submit-change">
+                                        Save
+                                    </button>
+                                </td>
                             </tr>
-                        }*@
+                            count++;
+                        }
                     </tbody>
                 </table>
             </div>
@@ -60,6 +65,66 @@
     <script>
 
         document.getElementsByClassName('nav-link nav-item')[2].classList.add('active');
+
+        const successNotification = window.createNotification({
+            theme: 'success',
+            showDuration: 2000,
+            positionClass: 'nfc-bottom-left'
+        });
+
+        const failNotification = window.createNotification({
+            theme: 'Error',
+            showDuration: 2000,
+            positionClass: 'nfc-bottom-left'
+        });
+
+        const alertNotification = window.createNotification({
+            theme: 'Warning',
+            showDuration: 2000,
+            positionClass: 'nfc-bottom-left'
+        });
+
+        
+        let table = document.querySelector('.table-responsive');
+        table.addEventListener('click' ,e => {
+            if (e.target.className.includes('submit-change') == false) return;
+
+            let button          = e.srcElement;
+            let selectedRole    = button.parentNode.previousElementSibling.children[0].value;
+            let username        = button.parentNode.parentNode.children[1].innerText
+            let currentRole     = button.parentNode.parentNode.children[3].innerText
+
+
+            if (!selectedRole){
+                alertNotification({
+                    title: 'Alert!',
+                    message: 'Role was not selected'
+                });
+                return;
+            }
+
+            if (selectedRole == currentRole){
+                alertNotification({
+                    title: 'Alert!',
+                    message: 'New role can not be the same as old role'
+                });
+                return;
+            }
+
+            fetch(`/api/roles/ModifyRole?username=${username}&roleName=${selectedRole}`, {
+                method: 'PUT',
+
+            }).then(data => {
+                if (data.status == '200'){
+                    successNotification({
+                        title: 'Success!',
+                        message: 'Role changed successfully'
+                    })
+                }
+                button.parentNode.parentNode.children[3].innerText = selectedRole;
+            }); 
+        });
+
 
     </script>
 }

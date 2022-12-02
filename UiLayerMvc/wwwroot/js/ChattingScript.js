@@ -22,6 +22,7 @@ fetch('/api/users/GetCurrentUserInfo')
     })
     .then(data => {
         loggedInUserInfo = data;
+        console.log(data);
     });
 
 function AddMessageFromOwner(username, message, userProfilePicturePath, messageDate) {

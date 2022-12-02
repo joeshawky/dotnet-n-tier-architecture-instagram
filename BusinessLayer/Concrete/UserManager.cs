@@ -17,6 +17,7 @@ public class UserManager : IUserService
     {
         return _userDal.List(u => u.UserId != userId);
     }
+
     public List<User> GetList()
     {
         return _userDal.List();
