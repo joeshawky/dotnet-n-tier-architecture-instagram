@@ -40,6 +40,7 @@ builder.Services.AddScoped<IUserDal, EfUserDal>();
 builder.Services.AddScoped<IImageDal, EfImageDal>();
 builder.Services.AddScoped<IProfileImageDal, EfProfileImageDal>();
 builder.Services.AddScoped<IChatInstanceDal, EfChatInstanceDal>();
+builder.Services.AddScoped<IFollowInstanceDal, EfFollowInstance>();
 
 
 var app = builder.Build();
@@ -54,7 +55,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHttpsRedirection();
 }
 
-app.MapHub<ChatHub>("/chat");
 
 app.UseAuthentication();
 app.UseAuthorization();

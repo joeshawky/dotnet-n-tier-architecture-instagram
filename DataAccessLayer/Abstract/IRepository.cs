@@ -2,7 +2,7 @@
 
 namespace DataAccessLayer.Abstract;
 
-public interface IRepository<T>
+public interface IRepositoryDal<T>
 {
     List<T> List();
 

@@ -14,8 +14,9 @@ namespace BusinessLayer.AutoMapperProfiles;
 
 public class UserMapper : Profile
 {
-    private readonly PostManager _postManager = new PostManager(new EfPostDal(), new EfPostLikeDal(), new EfPostSaveDal());
-
+    private readonly PostManager _postManager = new PostManager(new EfPostDal(), new EfPostLikeDal(), new EfPostSaveDal(), new EfFollowInstance(), new EfUserDal());
+    private readonly UserManager _userManager = new UserManager(new EfUserDal(), new EfFollowInstance());
+    private readonly FollowInstanceManager _followInstanceManager = new FollowInstanceManager(new EfFollowInstance(), new EfUserDal());
     public UserMapper()
     {
 
@@ -30,7 +31,9 @@ public class UserMapper : Profile
 
         CreateMap<User, ProfileViewModel>()
             .ForMember(destination => destination.UserProfilePicturePath, operation => operation.MapFrom(source => source.ProfileImage.ImagePath))
-            .ForMember(destination => destination.PostCount, operation => operation.MapFrom(source => _postManager.GetList(source).Count));
+            .ForMember(destination => destination.PostCount, operation => operation.MapFrom(source => _postManager.GetList(source).Count))
+            .ForMember(destination => destination.FollowingCount, operation => operation.MapFrom(source => _followInstanceManager.GetFollowingUsernamesForUser(source.Username).Count))
+            .ForMember(destination => destination.FollowersCount, operation => operation.MapFrom(source => _followInstanceManager.GetFollowersUsernamesForUser(source.Username).Count));
 
         CreateMap<User, UserDto>()
             .ForMember(destination => destination.ProfilePicturePath, operation => operation.MapFrom(source => source.ProfileImage.ImagePath))

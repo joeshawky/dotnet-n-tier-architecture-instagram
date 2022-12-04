@@ -479,3 +479,17 @@ a {
 .footer a:hover {
     color: #ff0000;
 }
+.follow-btn{
+    color: blue;
+    background: white;
+    background-color: white;
+}
+.unfollow-btn{
+    color: blue;
+    background: white;
+    background-color: white;
+}
+
+.userDetails{
+    cursor: pointer;   
+}

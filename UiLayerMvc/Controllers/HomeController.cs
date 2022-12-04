@@ -13,7 +13,7 @@ public class HomeController : Controller
 {
     private readonly PostManager _postManager;
     private readonly UserManager _userManager;
-
+    private readonly FollowInstanceManager _followInstanceManager;
     private readonly IMapper _mapper;
 
         
@@ -22,18 +22,22 @@ public class HomeController : Controller
         IPostDal postDal,
         IPostLikeDal postLikeDal,
         IPostSaveDal postSaveDal,
-        IUserDal userDal)
+        IUserDal userDal,
+        IFollowInstanceDal followInstanceDal)
     {
         _mapper = mapper;
-        _postManager = new PostManager(postDal, postLikeDal, postSaveDal);
-        _userManager = new UserManager(userDal);
+        _postManager = new PostManager(postDal, postLikeDal, postSaveDal, followInstanceDal, userDal);
+        _userManager = new UserManager(userDal, followInstanceDal);
+        _followInstanceManager = new FollowInstanceManager(followInstanceDal, userDal);
     }
 
     public IActionResult Homepage()
     {
         var userId = GetUserId(); // returns 0 if user is not signed in.
 
-        var posts = _postManager.GetList();
+        //var posts = _postManager.GetList();
+
+        var posts = _postManager.GetPostsForUser(userId);
 
         var homePagePostsVm = new HomePageViewModel()
         {
@@ -41,8 +45,19 @@ public class HomeController : Controller
         };
 
         var suggestedUsers = _userManager.GetFirstFiveExceptUser(userId);
-        homePagePostsVm.SuggestedUsers = suggestedUsers.Select(user => _mapper.Map<SuggestedUserModalView>(user)).ToList();
+        
 
+        var sugggestedUsersMoelView = suggestedUsers
+            .Select(user => _mapper.Map<SuggestedUserModalView>(user))
+            .ToList();
+
+        sugggestedUsersMoelView.ForEach(su =>
+        {
+            su.FollowsYou = _followInstanceManager.IsUserOneFollowingUsertwo(su.UserId, userId);
+        });
+
+
+        homePagePostsVm.SuggestedUsers = sugggestedUsersMoelView;
 
         foreach (var post in posts)
         {

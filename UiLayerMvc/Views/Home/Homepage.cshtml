@@ -194,9 +194,9 @@
                         <h4>Suggestions For You</h4>
                     @foreach (var suggestedUser in Model.SuggestedUsers)
                     {
-                        <a href="/account/profile?userid=@suggestedUser.UserId">
+                        <div>
                             <div class="top">
-                                <div class="userDetails">
+                                <div class="userDetails" onclick="location.href='/account/profile?userid=@suggestedUser.UserId'">
                                     <div class="profilepic">
                                         <div class="profile_img">
                                             <div class="image">
@@ -205,16 +205,19 @@
                                         </div>
                                     </div>
                                     <h3>@suggestedUser.Username<br>
-                                        <span>Follows You</span>
+                                        @if (suggestedUser.FollowsYou)
+                                        {
+                                            <span>Follows You</span>
+                                        }
                                     </h3>
                                 </div>
                                 <div>
-                                    <a href="#" 
-                               class="follow">follow
-                                    </a>
+                                    <button class="follow-btn" href="#" >
+                                        follow
+                                    </button>
                                 </div>
                             </div>
-                                </a>
+                                </div>
 
                     }
 
@@ -247,6 +250,90 @@
     
 @section Scripts{
     <script>
+        function CreateUnfollowButton(type) {
+            button = document.createElement('button');
+            button.className = 'unfollow-btn';
+            button.textContent = 'Unfollow';
+
+            return button;
+        }
+
+        function CreateFollowButton(type)
+        {
+            button = document.createElement('button');
+            button.className = 'follow-btn';
+            button.textContent = 'Follow';
+
+            return button;
+        }
+
+
+        async function Main ()
+        {
+
+            let divWithBtn;
+
+            let followBtn = document.querySelector('.follow-btn');
+
+            let unfollowBtn = document.querySelector('.unfollow-btn');
+
+            let profileUsername;
+
+            let loggedInUsername = await fetch('/api/users/GetLoggedinUsername')
+                                    .then(response => {
+                                        if (response.status == 200){
+                                            return response.text();
+                                        }
+                                    })
+
+
+            if (followBtn != null)
+            {
+                followBtn.addEventListener('click', async e => {
+                    divWithBtn = e.target.parentNode;
+                    profileUsername = e.target.parentNode.previousElementSibling.children[1].firstChild.textContent;
+
+                    let data = await fetch(`/api/users/followuser?followerusername=${loggedInUsername}&otherusername=${profileUsername}`, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                    })
+
+                    //followBtn.textContent = "Following";
+                    newBtn = CreateUnfollowButton()
+                    divWithBtn.removeChild(followBtn);
+                    divWithBtn.appendChild(newBtn);
+                    Main();
+                });
+            }
+
+            if (unfollowBtn != null)
+            {
+                unfollowBtn.addEventListener('click', async e => {
+                    divWithBtn = e.target.parentNode;
+                    profileUsername = e.target.parentNode.previousElementSibling.children[1].firstChild.textContent;
+
+                    let data = await fetch(`/api/users/unfollowuser?followerusername=${loggedInUsername}&otherusername=${profileUsername}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                    })
+
+                    newBtn = CreateFollowButton()
+                    divWithBtn.removeChild(unfollowBtn);
+                    divWithBtn.appendChild(newBtn);
+                    Main();
+                });
+            }
+
+        }
+
+        Main();
+
     $(document).ready(function(){
         let userId = 0;
         $.ajax({

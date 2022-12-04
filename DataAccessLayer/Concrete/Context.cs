@@ -23,5 +23,7 @@ public class Context : DbContext
     public DbSet<CommentLike> CommentLikes { get; set; }
     public DbSet<PostSave> PostSaves { get; set; }
     public DbSet<ChatInstance> chatInstances { get; set; }
+    public DbSet<FollowInstance> FollowInstances { get; set; }
+
 
 }

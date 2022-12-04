@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\ModelViews\\ModelViews.csproj": {}
+    "C:\\Users\\Joe\\Desktop\\instatest\\ModelViews\\ModelViews.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj": {
+    "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj",
         "projectName": "DataAccessLayer",
-        "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj",
         "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\obj\\",
+        "outputPath": "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj"
+              "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj": {
+                "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj"
               }
             }
           }
@@ -87,18 +87,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj": {
+    "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj",
         "projectName": "EntityLayer",
-        "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj",
+        "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj",
         "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\obj\\",
+        "outputPath": "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -146,18 +146,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\ModelViews\\ModelViews.csproj": {
+    "C:\\Users\\Joe\\Desktop\\instatest\\ModelViews\\ModelViews.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\ModelViews\\ModelViews.csproj",
+        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\instatest\\ModelViews\\ModelViews.csproj",
         "projectName": "ModelViews",
-        "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\ModelViews\\ModelViews.csproj",
+        "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\ModelViews\\ModelViews.csproj",
         "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\ModelViews\\obj\\",
+        "outputPath": "C:\\Users\\Joe\\Desktop\\instatest\\ModelViews\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -178,11 +178,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj"
+              "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj"
               },
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj"
+              "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj": {
+                "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj"
               }
             }
           }
@@ -212,7 +212,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

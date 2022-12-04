@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\UiLayerMvc.csproj": {}
+    "C:\\Users\\Joe\\Desktop\\instatest\\UiLayerMvc\\UiLayerMvc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\BusinessLayer\\BusinessLayer.csproj": {
+    "C:\\Users\\Joe\\Desktop\\instatest\\BusinessLayer\\BusinessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\BusinessLayer\\BusinessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\instatest\\BusinessLayer\\BusinessLayer.csproj",
         "projectName": "BusinessLayer",
-        "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\BusinessLayer\\BusinessLayer.csproj",
+        "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\BusinessLayer\\BusinessLayer.csproj",
         "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\BusinessLayer\\obj\\",
+        "outputPath": "C:\\Users\\Joe\\Desktop\\instatest\\BusinessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,14 +32,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj"
+              "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj"
               },
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj"
+              "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj": {
+                "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj"
               },
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\ModelViews\\ModelViews.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\ModelViews\\ModelViews.csproj"
+              "C:\\Users\\Joe\\Desktop\\instatest\\ModelViews\\ModelViews.csproj": {
+                "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\ModelViews\\ModelViews.csproj"
               }
             }
           }
@@ -83,18 +83,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj": {
+    "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj",
         "projectName": "DataAccessLayer",
-        "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj",
         "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\obj\\",
+        "outputPath": "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -115,8 +115,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj"
+              "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj": {
+                "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj"
               }
             }
           }
@@ -170,18 +170,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj": {
+    "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj",
         "projectName": "EntityLayer",
-        "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj",
+        "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj",
         "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\obj\\",
+        "outputPath": "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -229,18 +229,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\ModelViews\\ModelViews.csproj": {
+    "C:\\Users\\Joe\\Desktop\\instatest\\ModelViews\\ModelViews.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\ModelViews\\ModelViews.csproj",
+        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\instatest\\ModelViews\\ModelViews.csproj",
         "projectName": "ModelViews",
-        "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\ModelViews\\ModelViews.csproj",
+        "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\ModelViews\\ModelViews.csproj",
         "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\ModelViews\\obj\\",
+        "outputPath": "C:\\Users\\Joe\\Desktop\\instatest\\ModelViews\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -261,11 +261,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj"
+              "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj"
               },
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj"
+              "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj": {
+                "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj"
               }
             }
           }
@@ -295,83 +295,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\SignalRDemo\\SignalRDemo.csproj": {
+    "C:\\Users\\Joe\\Desktop\\instatest\\UiLayerMvc\\UiLayerMvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\SignalRDemo\\SignalRDemo.csproj",
-        "projectName": "SignalRDemo",
-        "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\SignalRDemo\\SignalRDemo.csproj",
-        "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\SignalRDemo\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\Joe\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.SignalR.Core": {
-              "target": "Package",
-              "version": "[1.1.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\UiLayerMvc.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\UiLayerMvc.csproj",
+        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\instatest\\UiLayerMvc\\UiLayerMvc.csproj",
         "projectName": "UiLayerMvc",
-        "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\UiLayerMvc.csproj",
+        "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\UiLayerMvc\\UiLayerMvc.csproj",
         "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\UiLayerMvc\\obj\\",
+        "outputPath": "C:\\Users\\Joe\\Desktop\\instatest\\UiLayerMvc\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -392,20 +327,17 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\BusinessLayer\\BusinessLayer.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\BusinessLayer\\BusinessLayer.csproj"
+              "C:\\Users\\Joe\\Desktop\\instatest\\BusinessLayer\\BusinessLayer.csproj": {
+                "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\BusinessLayer\\BusinessLayer.csproj"
               },
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\DataAccessLayer\\DataAccessLayer.csproj"
+              "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\DataAccessLayer\\DataAccessLayer.csproj"
               },
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\EntityLayer\\EntityLayer.csproj"
+              "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj": {
+                "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\EntityLayer\\EntityLayer.csproj"
               },
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\ModelViews\\ModelViews.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\ModelViews\\ModelViews.csproj"
-              },
-              "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\SignalRDemo\\SignalRDemo.csproj": {
-                "projectPath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\SignalRDemo\\SignalRDemo.csproj"
+              "C:\\Users\\Joe\\Desktop\\instatest\\ModelViews\\ModelViews.csproj": {
+                "projectPath": "C:\\Users\\Joe\\Desktop\\instatest\\ModelViews\\ModelViews.csproj"
               }
             }
           }
@@ -452,7 +384,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

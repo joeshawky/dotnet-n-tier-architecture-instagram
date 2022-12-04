@@ -16,10 +16,10 @@ namespace UiLayerMvc.Controllers.Api
 		private readonly ChatInstanceManager _chatManager;
 		private readonly UserManager _userManager;
 
-		public ChatsController(IChatInstanceDal chatInstanceDal, IUserDal userDal)
+		public ChatsController(IChatInstanceDal chatInstanceDal, IUserDal userDal, IFollowInstanceDal followInstanceDal)
 		{
 			_chatManager = new ChatInstanceManager(chatInstanceDal);
-			_userManager = new UserManager(userDal);
+			_userManager = new UserManager(userDal, followInstanceDal);
 		}
 
 		[HttpGet(nameof(GetUserInfo))]

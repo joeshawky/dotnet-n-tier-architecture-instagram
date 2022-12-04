@@ -2,6 +2,6 @@
 
 namespace DataAccessLayer.Abstract;
 
-public interface IRiskyCommentDal : IRepository<RiskyComment>
+public interface IRiskyCommentDal : IRepositoryDal<RiskyComment>
 {
 }

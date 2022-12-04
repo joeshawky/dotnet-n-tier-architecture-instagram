@@ -5,7 +5,7 @@
 }
 
   <head>
-    <link rel="stylesheet" href="~/profileTemplate/ProfileStyles.css" />
+    <link rel="stylesheet" href="~/profileTemplate/ProfileStyles.css" asp-append-version="true" />
   </head>
   <main>
       <header>
@@ -15,15 +15,25 @@
           </div>
           <div class="profile-info">
             <div class="title row">
-              <h2>@Model.Username</h2>
-              <button class="primary">Follow</button>
+              <h2 id="profile-username">@Model.Username</h2>
+              @if (Model.Following == true)
+                {
+                    <button class="unfollow-btn">Unfollow</button>
+
+                }
+                else
+                {
+                    <button class="follow-btn">Follow</button>
+
+
+                }
             </div>
             <div class="desktop-only">
               <div class="details row">
                 <ul>
                   <li><span>@Model.Posts.Count()</span> posts</li>
-                  <li><span>xxx</span> followers</li>
-                  <li><span>xxx</span> following</li>
+                  <li><span id="followers-count">@Model.FollowersCount</span> followers</li>
+                  <li><span id="following-count">@Model.FollowingCount</span> following</li>
                 </ul>
               </div>
               <div class="descriptions row last">
@@ -56,3 +66,101 @@
           }
       </div>
     </main>
+
+@section Scripts
+{
+    <script>
+
+        function CreateUnfollowButton(type) {
+            button = document.createElement('button');
+            button.className = 'unfollow-btn';
+            button.textContent = 'Unfollow';
+
+            return button;
+        }
+
+        function CreateFollowButton(type)
+        {
+            button = document.createElement('button');
+            button.className = 'follow-btn';
+            button.textContent = 'Follow';
+
+            return button;
+        }
+
+        async function Main()
+        {
+
+            let followersCount = document.querySelector('#followers-count');
+            let followingCount = document.querySelector('#following-count');
+            
+            let aboveButtonBlock = document.querySelector('.title');
+
+            let unfollowBtn = document.querySelector('.unfollow-btn');
+
+            let followBtn = document.querySelector('.follow-btn');
+            let profileUsername = document.querySelector('#profile-username').textContent;
+
+
+            let loggedInUsername = await fetch('/api/users/getloggedinusername', {
+                method: 'GET'
+            })
+            .then(response => {
+                if (response.status == 200) {
+                    return response.text();
+                }
+            })
+
+
+            if (followBtn != null)
+            {
+                followBtn.addEventListener('click', async e => {
+                    let data = await fetch(`/api/users/followuser?followerusername=${loggedInUsername}&otherusername=${profileUsername}`, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                    })
+                    button = CreateUnfollowButton();
+
+
+                    aboveButtonBlock.appendChild(button);
+                    followBtn.remove();
+                    followersCount.textContent = parseInt(followersCount.textContent) + 1;
+
+
+                    Main();
+                });
+            }
+
+            if (unfollowBtn != null)
+            {
+                unfollowBtn.addEventListener('click', async e => {
+                    data = await fetch(`/api/users/unfollowuser?followerusername=${loggedInUsername}&otherusername=${profileUsername}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                    })
+
+                    button = CreateFollowButton();
+
+                        
+                    aboveButtonBlock.appendChild(button);
+                    unfollowBtn.remove();
+
+                    followersCount.textContent = parseInt(followersCount.textContent) - 1;
+
+
+                    Main();
+                });
+
+            }
+
+        }
+        Main();
+
+    </script>
+}

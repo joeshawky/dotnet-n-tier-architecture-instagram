@@ -21,10 +21,12 @@ public class LikesController : ControllerBase
         ICommentDal commentDal,
         ICommentLikeDal commentLikeDal,
         IRiskyCommentDal riskyCommentDal,
-        IMapper mapper
+        IMapper mapper,
+        IFollowInstanceDal followInstanceDal,
+        IUserDal userDal
     )
     {
-        _postManager = new PostManager(postdal, postLikeDal, postSaveDal);
+        _postManager = new PostManager(postdal, postLikeDal, postSaveDal, followInstanceDal, userDal);
         _commentManager = new CommentManager(commentDal, commentLikeDal, riskyCommentDal, mapper);
     }
 

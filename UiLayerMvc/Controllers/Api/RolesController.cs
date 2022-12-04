@@ -12,9 +12,9 @@ namespace UiLayerMvc.Controllers.Api
         private UserManager _userManager;
 
 
-        public RolesController(IUserDal userDal)
+        public RolesController(IUserDal userDal, IFollowInstanceDal followInstanceDal)
         {
-            _userManager = new UserManager(userDal);
+            _userManager = new UserManager(userDal, followInstanceDal);
         }
 
         [HttpPut("ModifyRole")]

@@ -2,6 +2,6 @@
 
 namespace DataAccessLayer.Abstract;
 
-public interface IChatInstanceDal : IRepository<ChatInstance>
+public interface IChatInstanceDal : IRepositoryDal<ChatInstance>
 {
 }

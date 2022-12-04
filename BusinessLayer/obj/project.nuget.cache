@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wzuqFxzw3+80aLQyhBEyqyzo/ENzvk/LJSac4frFv4dCiNfLGDFvrojfqlBdJqncQBN0wiFeUdEqJ1dD/DazEA==",
+  "dgSpecHash": "Lb2woY1tzXyg2zo41sCbdXHnfqdJyBZMH6bmT1oUyrKxp/PYCBueiHSaGSV8nZ7ohmtFn1J4jFlOWQmNNw8pfw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\BusinessLayer\\BusinessLayer.csproj",
+  "projectFilePath": "C:\\Users\\Joe\\Desktop\\instatest\\BusinessLayer\\BusinessLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Joe\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Joe\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",

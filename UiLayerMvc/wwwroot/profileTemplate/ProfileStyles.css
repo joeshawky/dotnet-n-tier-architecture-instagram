@@ -2,6 +2,22 @@
 @import url("./common.css");
 
 /* Navigation */
+
+.unfollow-btn {
+    background: white;
+    -webkit-text-fill-color: black;
+    padding: 5px 12px;
+    margin-left: 20px;
+    width: fit-content;
+}
+
+.follow-btn {
+    background: #0095f6;
+    -webkit-text-fill-color: white;
+    padding: 5px 12px;
+    margin-left: 20px;
+    width: fit-content;
+}
 .nav-content .logo {
   height: 29px;
 }

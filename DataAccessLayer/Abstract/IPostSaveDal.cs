@@ -2,6 +2,6 @@
 
 namespace DataAccessLayer.Abstract;
 
-public interface IPostSaveDal : IRepository<PostSave>
+public interface IPostSaveDal : IRepositoryDal<PostSave>
 {
 }

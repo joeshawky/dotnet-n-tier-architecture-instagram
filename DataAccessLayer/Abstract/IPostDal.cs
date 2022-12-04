@@ -2,6 +2,6 @@
 
 namespace DataAccessLayer.Abstract;
 
-public interface IPostDal : IRepository<Post>
+public interface IPostDal : IRepositoryDal<Post>
 {
 }

@@ -32,15 +32,16 @@ namespace UiLayerMvc.Controllers
                 ICommentDal commentDal,
                 ICommentLikeDal commentLikeDal,
                 IRiskyCommentDal riskyCommentDal,
-                IMapper mapper
+                IMapper mapper,
+                IFollowInstanceDal followInstanceDal
 
             )
         {
             _mapper = mapper;
 
-            _postManager = new PostManager(postDal, postLikeDal, postSaveDal);
+            _postManager = new PostManager(postDal, postLikeDal, postSaveDal, followInstanceDal, userDal);
             _imageManager = new ImageManager(imageDal);
-            _userManager = new UserManager(userDal);
+            _userManager = new UserManager(userDal, followInstanceDal);
             _commentManager = new CommentManager(commentDal, commentLikeDal, riskyCommentDal, mapper);
             _riskyCommentManager = new RiskyCommentManager(riskyCommentDal);
 

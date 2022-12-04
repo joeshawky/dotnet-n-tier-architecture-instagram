@@ -2,6 +2,6 @@
 
 namespace DataAccessLayer.Abstract;
 
-public interface IUserDal : IRepository<User>
+public interface IUserDal : IRepositoryDal<User>
 {
 }

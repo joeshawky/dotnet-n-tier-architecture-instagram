@@ -26,12 +26,14 @@ namespace DataAccessLayer.EntityFramework
         {
             return _object
                 .Include(u => u.ProfileImage)
+                .Include(u => u.FollowInstances)
                 .ToList();
         }
         public override List<User> List(Expression<Func<User, bool>> filter)
         {
             return _object
                 .Include(u => u.ProfileImage)
+                .Include(u => u.FollowInstances)
                 .Where(filter)
                 .ToList();
         }
@@ -40,6 +42,7 @@ namespace DataAccessLayer.EntityFramework
         {
             return _object
                 .Include(u => u.ProfileImage)
+                .Include(u => u.FollowInstances)
                 .SingleOrDefault(filter);
         }
     }

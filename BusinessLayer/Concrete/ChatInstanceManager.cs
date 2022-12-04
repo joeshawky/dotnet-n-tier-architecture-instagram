@@ -17,22 +17,16 @@ public class ChatInstanceManager : IChatInstanceService
 
     public int CreateChannelId()
     {
-        var index = 1;
         var chats = _chatInstance.List();
-        for (int i = 0; i < chats.Count; i++)
+        var channelNumbers = chats.Select(c => c.Channel);
+        var maxChannelNumber = channelNumbers.Max();
+
+        while(true)
         {
-            if (chats[i].Channel == index)
-            {
-                index++;
-                i = 0;
-            }
-            if (index == 100)
-            {
-                throw new Exception("Couldn't find channel id");
-            }
+            var newChannelNumber = maxChannelNumber + 1;
+            if (channelNumbers.Contains(newChannelNumber) == false)
+                return newChannelNumber;
         }
-        return index;
-            
 
     }
     public int? GetChannelId(string username1, string username2)

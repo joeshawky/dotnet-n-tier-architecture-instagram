@@ -21,7 +21,6 @@
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
     <ProjectReference Include="..\ModelViews\ModelViews.csproj" />
-    <ProjectReference Include="..\SignalRDemo\SignalRDemo.csproj" />
   </ItemGroup>
 
   <ItemGroup>

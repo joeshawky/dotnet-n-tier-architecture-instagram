@@ -114,6 +114,30 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("CommentLikes");
                 });
 
+            modelBuilder.Entity("EntityLayer.Concrete.FollowInstance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FollowedUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("FollowInstances");
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.Post", b =>
                 {
                     b.Property<int>("PostId")
@@ -337,6 +361,15 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("EntityLayer.Concrete.FollowInstance", b =>
+                {
+                    b.HasOne("EntityLayer.Concrete.User", null)
+                        .WithMany("FollowInstances")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.Post", b =>
                 {
                     b.HasOne("EntityLayer.Concrete.User", "User")
@@ -414,6 +447,8 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Concrete.User", b =>
                 {
+                    b.Navigation("FollowInstances");
+
                     b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618

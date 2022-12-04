@@ -13,9 +13,11 @@ public class SavesController : ControllerBase
     public SavesController(
         IPostDal postDal,
         IPostLikeDal postLikeDal,
-        IPostSaveDal postSaveDal)
+        IPostSaveDal postSaveDal,
+        IFollowInstanceDal followInstanceDal,
+        IUserDal userDal)
     {
-        _postManager = new PostManager(postDal, postLikeDal, postSaveDal);
+        _postManager = new PostManager(postDal, postLikeDal, postSaveDal, followInstanceDal, userDal);
     }
 
     [HttpPost("PostSave")]

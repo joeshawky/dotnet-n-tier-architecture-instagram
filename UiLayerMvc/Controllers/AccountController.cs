@@ -19,6 +19,7 @@ public class AccountController : Controller
     private readonly PostManager _postManager;
     private readonly ProfileImageManager _profileImageManager;
     private readonly ImageManager _imageManager;
+    private readonly FollowInstanceManager _followInstanceManager;
 
     private readonly UserValidator _userValidator;
     private readonly EditProfileValidator _editProfileValidator;
@@ -33,11 +34,13 @@ public class AccountController : Controller
         IPostLikeDal postLikeDal,
         IPostSaveDal postSaveDal,
         IProfileImageDal profileImageDal,
-        IImageDal imageDal
+        IImageDal imageDal,
+        IFollowInstanceDal followInstanceDal
     )
     {
-        _userManager = new UserManager(userDal);
-        _postManager = new PostManager(postDal, postLikeDal, postSaveDal);
+        _followInstanceManager = new FollowInstanceManager(followInstanceDal, userDal);
+        _userManager = new UserManager(userDal, followInstanceDal);
+        _postManager = new PostManager(postDal, postLikeDal, postSaveDal, followInstanceDal, userDal);
         _profileImageManager = new ProfileImageManager(profileImageDal);
         _userValidator = new UserValidator();
         _editProfileValidator = new EditProfileValidator();
@@ -149,15 +152,25 @@ public class AccountController : Controller
     {
         var user = _userManager.GetById(userId);
 
+
         var isOwner = User.Identity.IsAuthenticated && User.Identity.Name.ToLower() == user.Username.ToLower() ? true : false;
 
         var posts = _postManager.GetList(user);
 
+
         var profileVm = _mapper.Map<ProfileViewModel>(user);
+
 
         profileVm.Posts = posts.Select(p => _mapper.Map<PostDisplayViewModel>(p)).ToList();
 
 
+        var loggedInUserIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        if (isOwner == false && loggedInUserIdClaim is not null)
+        {
+            var loggedInUserId = Convert.ToInt32(loggedInUserIdClaim);
+            profileVm.Following = _followInstanceManager.IsUserOneFollowingUsertwo(loggedInUserId, user.UserId);
+        }
         return isOwner ? View(profileVm) : View(nameof(OtherProfile), profileVm);
     }
 

@@ -135,12 +135,14 @@
 	
 
 	let fadedArea = document.querySelector('.post_bg');
-			fadedArea.addEventListener('click', e => {
-				if (e.target.className.includes('post__block') == false) {
-				let exitBtn = document.querySelector('.btn-close');
-				exitBtn.click();
-				}
-			})
+	fadedArea.addEventListener('click', e => {
+		if (e.target.className.includes('post__block') == false) {
+		let exitBtn = document.querySelector('.btn-close');
+		console.log(e.target.className);
+
+		//exitBtn.click();
+		}
+	}, true)
 
 
 

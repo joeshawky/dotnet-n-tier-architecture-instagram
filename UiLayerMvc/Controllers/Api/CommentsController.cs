@@ -23,12 +23,13 @@ public class CommentsController : ControllerBase
         ICommentLikeDal commentLikeDal,
         IUserDal userDal,
         IImageDal imageDal,
-        IRiskyCommentDal riskyCommentDal
+        IRiskyCommentDal riskyCommentDal,
+        IFollowInstanceDal followInstanceDal
     )
     {
         _commentMapper = mapper;
         _commentManager = new CommentManager(commentDal, commentLikeDal, riskyCommentDal, mapper);
-        _userManager = new UserManager(userDal);
+        _userManager = new UserManager(userDal, followInstanceDal);
         new ImageManager(imageDal);
         _riskyCommentManager = new RiskyCommentManager(riskyCommentDal);
     }

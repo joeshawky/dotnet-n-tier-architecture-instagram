@@ -12,9 +12,9 @@ public class MessageController : Controller
 {
     private readonly UserManager _userManager;
 
-	public MessageController(IUserDal userDal)
+	public MessageController(IUserDal userDal, IFollowInstanceDal followInstanceDal)
 	{
-		_userManager = new UserManager(userDal);
+		_userManager = new UserManager(userDal, followInstanceDal);
 	}
 
     [Authorize]

@@ -9,13 +9,32 @@ public class PostManager : IPostService
     private readonly IPostDal _postDal;
     private readonly IPostLikeService _postLikeManager;
     private readonly IPostSaveService _postSaveManager;
+    private readonly IFollowInstanceService _followInstanceManager;
 
-    public PostManager(IPostDal postDal, IPostLikeDal postLikeDal, IPostSaveDal postSaveDal)
+    public PostManager(
+        IPostDal postDal, 
+        IPostLikeDal postLikeDal, 
+        IPostSaveDal postSaveDal, 
+        IFollowInstanceDal followInstanceDal,
+        IUserDal userDal)
     {
         _postDal = postDal;
         _postSaveManager = new PostSaveManager(postSaveDal);
         _postLikeManager = new PostLikeManager(postLikeDal);
+        _followInstanceManager = new FollowInstanceManager(followInstanceDal, userDal);
     }
+    
+
+    public List<Post> GetPostsForUser(int userId)
+    {
+        var followingIds = _followInstanceManager.GetFollowingIdsForUser(userId);
+        var posts = _postDal.List(p => followingIds.Contains(p.UserId) || p.UserId == userId)
+            .OrderByDescending(p => p.DateTime)
+            .ToList();
+        return posts;
+
+    }
+
 
     public List<Post> GetList()
     {

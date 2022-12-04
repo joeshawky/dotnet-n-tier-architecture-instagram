@@ -26,4 +26,6 @@ public class User : InsertionDate
     public virtual ProfileImage ProfileImage { get; set; }
 
     public ICollection<Post> Posts { get; set; }
+    public ICollection<FollowInstance> FollowInstances { get; set; }
+
 }

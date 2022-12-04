@@ -8,6 +8,10 @@ main {
   max-width: 935px;
   margin: 0 auto;
 }
+
+
+
+
 @media only screen and (max-width: 735px) {
   main {
     padding: 0;
@@ -77,3 +81,5 @@ button.primary {
   width: 32px;
   height: 32px;
 }
+
+

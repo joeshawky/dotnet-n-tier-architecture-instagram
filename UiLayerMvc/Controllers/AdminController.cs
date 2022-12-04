@@ -28,12 +28,13 @@ public class AdminController : Controller
         IRiskyCommentDal riskyCommentDal,
         ICommentDal commentDal,
         ICommentLikeDal commentLikeDal,
-        IUserDal userDal)
+        IUserDal userDal,
+        IFollowInstanceDal followInstanceDal)
     {
         _mapper = mapper;
         _riskyCommentManager = new RiskyCommentManager(riskyCommentDal);
         _commentManager = new CommentManager(commentDal, commentLikeDal, riskyCommentDal, mapper);
-        _userManager = new UserManager(userDal);
+        _userManager = new UserManager(userDal, followInstanceDal);
 
     }
 

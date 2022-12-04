@@ -2,6 +2,6 @@
 
 namespace DataAccessLayer.Abstract;
 
-public interface ICommentDal : IRepository<Comment>
+public interface ICommentDal : IRepositoryDal<Comment>
 {
 }

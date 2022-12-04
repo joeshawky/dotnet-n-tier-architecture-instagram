@@ -2,6 +2,6 @@
 
 namespace DataAccessLayer.Abstract;
 
-public interface IPostLikeDal : IRepository<PostLike>
+public interface IPostLikeDal : IRepositoryDal<PostLike>
 {
 }

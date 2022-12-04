@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using EntityLayer.Concrete;
+﻿using EntityLayer.Concrete;
 
-namespace BusinessLayer.Abstract
+namespace BusinessLayer.Abstract;
+
+public interface IUserService : IService<User>
 {
-    public interface IUserService : IService<User>
-    {
-    }
 }

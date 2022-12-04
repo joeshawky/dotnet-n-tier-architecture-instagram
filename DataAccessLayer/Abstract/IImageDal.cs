@@ -2,6 +2,6 @@
 
 namespace DataAccessLayer.Abstract;
 
-public interface IImageDal : IRepository<ProfileImage>
+public interface IImageDal : IRepositoryDal<ProfileImage>
 {
 }

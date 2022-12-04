@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RIdDMNwgTv2xHLCyf5tZcLESjq7UacFJ5OBplF55pKTOzSashNvmJYfHdiWxErgyAI7RI+a+pFV1pAeS9p5TNQ==",
+  "dgSpecHash": "IYip2wF1I9WJxzIcpEferCddaiUl3wjXe5XCA3rhhLdy7khR0QOw9RORU5THEaKl43B9fkMMXGGxNvxk+FTNVg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Joe\\Desktop\\CS\\InstagramTestCleanCode\\SignalRDemo\\SignalRDemo.csproj",
+  "projectFilePath": "C:\\Users\\Joe\\Desktop\\instatest\\SignalRDemo\\SignalRDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Joe\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
     "C:\\Users\\Joe\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\2.2.0\\microsoft.aspnetcore.connections.abstractions.2.2.0.nupkg.sha512",
