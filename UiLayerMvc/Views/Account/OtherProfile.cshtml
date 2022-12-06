@@ -7,7 +7,7 @@
   <head>
     <link rel="stylesheet" href="~/profileTemplate/ProfileStyles.css" asp-append-version="true" />
   </head>
-  <main>
+  <main id="bundle-block">
       <header>
         <div class="header-wrap">
           <div class="profile-pic">
@@ -32,8 +32,8 @@
               <div class="details row">
                 <ul>
                   <li><span>@Model.Posts.Count()</span> posts</li>
-                  <li><span id="followers-count">@Model.FollowersCount</span> followers</li>
-                  <li><span id="following-count">@Model.FollowingCount</span> following</li>
+                  <li id="followers-block"><span id="followers-count">@Model.FollowersCount</span> followers</li>
+                  <li id="following-block"><span id="following-count">@Model.FollowingCount</span> following</li>
                 </ul>
               </div>
               <div class="descriptions row last">
@@ -59,7 +59,7 @@
           {
               <div class="gallery-item">
                   <a href="/post/view/@post.PostId">
-                        <img alt="gallery-post" src="@post.PostImagePath"/>
+                    <img class="post-img" alt="gallery-post" src="@post.PostImagePath" />
                  </a>
             </div>
 
@@ -88,8 +88,34 @@
             return button;
         }
 
+        async function GetLoggedinUsername() {
+            let response = await fetch('/api/users/GetLoggedinUsername')
+
+            if (response.status == 200) return response.text();
+
+        }
         async function Main()
         {
+            let profileUsername = document.querySelector('#profile-username').textContent;
+            let loggedInUsername = await GetLoggedinUsername();
+
+
+            let followersBlock = document.querySelector('#followers-block');
+
+            followersBlock.addEventListener('click', async e => {
+               window.location.href =`/account/viewfollowers?username=${profileUsername}`
+            });
+
+
+            let followingBlock = document.querySelector('#following-block');
+            followingBlock.addEventListener('click', e => {
+                let bundleBlock = document.querySelector('#bundle-block');
+                let newDiv = document.createElement('div');
+                newDiv.style.position = 'absolute';
+                newDiv.style.width = '400px';
+                bundleBlock.appendChild();
+            });
+
 
             let followersCount = document.querySelector('#followers-count');
             let followingCount = document.querySelector('#following-count');
@@ -99,17 +125,9 @@
             let unfollowBtn = document.querySelector('.unfollow-btn');
 
             let followBtn = document.querySelector('.follow-btn');
-            let profileUsername = document.querySelector('#profile-username').textContent;
+            
 
 
-            let loggedInUsername = await fetch('/api/users/getloggedinusername', {
-                method: 'GET'
-            })
-            .then(response => {
-                if (response.status == 200) {
-                    return response.text();
-                }
-            })
 
 
             if (followBtn != null)

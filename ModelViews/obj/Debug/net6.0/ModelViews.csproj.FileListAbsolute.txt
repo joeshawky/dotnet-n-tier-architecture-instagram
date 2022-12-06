@@ -51,3 +51,21 @@ C:\Users\Joe\Desktop\instatest\ModelViews\obj\Debug\net6.0\ModelViews.dll
 C:\Users\Joe\Desktop\instatest\ModelViews\obj\Debug\net6.0\refint\ModelViews.dll
 C:\Users\Joe\Desktop\instatest\ModelViews\obj\Debug\net6.0\ModelViews.pdb
 C:\Users\Joe\Desktop\instatest\ModelViews\obj\Debug\net6.0\ref\ModelViews.dll
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\bin\Debug\net6.0\ContextSettings.json
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\bin\Debug\net6.0\ModelViews.deps.json
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\bin\Debug\net6.0\ModelViews.dll
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\bin\Debug\net6.0\ModelViews.pdb
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\bin\Debug\net6.0\DataAccessLayer.dll
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\bin\Debug\net6.0\EntityLayer.dll
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\bin\Debug\net6.0\DataAccessLayer.pdb
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\bin\Debug\net6.0\EntityLayer.pdb
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\obj\Debug\net6.0\ModelViews.csproj.AssemblyReference.cache
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\obj\Debug\net6.0\ModelViews.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\obj\Debug\net6.0\ModelViews.AssemblyInfoInputs.cache
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\obj\Debug\net6.0\ModelViews.AssemblyInfo.cs
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\obj\Debug\net6.0\ModelViews.csproj.CoreCompileInputs.cache
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\obj\Debug\net6.0\ModelViews.csproj.CopyComplete
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\obj\Debug\net6.0\ModelViews.dll
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\obj\Debug\net6.0\refint\ModelViews.dll
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\obj\Debug\net6.0\ModelViews.pdb
+C:\Users\Joe\Desktop\Latest dotnet insta\ModelViews\obj\Debug\net6.0\ref\ModelViews.dll

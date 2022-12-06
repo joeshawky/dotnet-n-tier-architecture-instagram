@@ -1,0 +1,44 @@
+﻿@using ModelViews.Concrete
+@model List<SuggestedUserModalView>
+
+<header>
+    <link rel="stylesheet" href="~/css/HomePageStyle.css" asp-append-version="true" />
+</header>
+
+
+    <div class="container">
+        <div class="col-3 block-of-users" id="button-block">
+
+            <div class="card">
+                @foreach (var suggestedUser in Model)
+                {
+                    <div>
+                        <div class="top">
+                            <div class="userDetails" onclick="location.href='/account/profile?userid=@suggestedUser.UserId'">
+                                <div class="profilepic">
+                                    <div class="profile_img">
+                                        <div class="image">
+                                            <img src=@suggestedUser.ProfilePicturePath alt="img12">
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3>
+                                    @suggestedUser.Username<br>
+                                    @if (suggestedUser.FollowsYou)
+                                    {
+                                        <span>Follows You</span>
+                                    }
+                                </h3>
+                            </div>
+                            <div>
+                                <button class="follow-btn" href="#">
+                                    follow
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>

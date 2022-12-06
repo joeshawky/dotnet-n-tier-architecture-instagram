@@ -43,6 +43,23 @@ public class UserManager : IUserService
 
         return user.UserId;
     }
+
+    public List<User> GetUsersForUsernameList(List<string> usernames)
+    {
+        var users = new List<User>();
+        usernames.ForEach(u =>
+        {
+            var user = _userDal.Get(user => user.Username == u);
+
+            if (user is null)
+                throw new Exception("User not found");
+
+            users.Add(user);
+        });
+
+
+        return users;
+    }
     public List<User> GetFirstFiveExceptUser(int userId)
     {
         var followingIds = _followInstanceManager.GetFollowingIdsForUser(userId);

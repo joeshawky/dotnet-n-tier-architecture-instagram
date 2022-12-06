@@ -189,7 +189,7 @@
             </div>
             @if (User.Identity.IsAuthenticated)
             {
-                <div class="col-3">
+                <div class="col-3" id="button-block">
                     <div class="card">
                         <h4>Suggestions For You</h4>
                     @foreach (var suggestedUser in Model.SuggestedUsers)
@@ -253,7 +253,7 @@
         function CreateUnfollowButton(type) {
             button = document.createElement('button');
             button.className = 'unfollow-btn';
-            button.textContent = 'Unfollow';
+            button.textContent = 'unfollow';
 
             return button;
         }
@@ -262,73 +262,86 @@
         {
             button = document.createElement('button');
             button.className = 'follow-btn';
-            button.textContent = 'Follow';
+            button.textContent = 'follow';
 
             return button;
         }
 
-
-        async function Main ()
+        async function GetLoggedinUsername()
         {
+            let response = await fetch('/api/users/GetLoggedinUsername')
 
-            let divWithBtn;
+            if (response.status == 200) return response.text();
+            
+        }
 
-            let followBtn = document.querySelector('.follow-btn');
+        async function SendFollowRequest(loggedInUsername, profileUsername)
+        {
+            let data = await fetch(`/api/users/followuser?followerusername=${loggedInUsername}&otherusername=${profileUsername}`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            });
 
-            let unfollowBtn = document.querySelector('.unfollow-btn');
+            return data.status;
+        }
 
-            let profileUsername;
+        async function SendUnfollowRequest(loggedInUsername, profileUsername)
+        {
+            let data = await fetch(`/api/users/unfollowuser?followerusername=${loggedInUsername}&otherusername=${profileUsername}`, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            });
+            return data.status;
+        }
+        
+        
 
-            let loggedInUsername = await fetch('/api/users/GetLoggedinUsername')
-                                    .then(response => {
-                                        if (response.status == 200){
-                                            return response.text();
-                                        }
-                                    })
+        async function Main()
+        {
+            let loggedInUsername = await GetLoggedinUsername();
+
+            let testDiv = document.querySelector('#button-block');
 
 
-            if (followBtn != null)
-            {
-                followBtn.addEventListener('click', async e => {
-                    divWithBtn = e.target.parentNode;
-                    profileUsername = e.target.parentNode.previousElementSibling.children[1].firstChild.textContent;
+            testDiv.addEventListener('click', async e => {
+                if (e.target.className != 'follow-btn') return;
 
-                    let data = await fetch(`/api/users/followuser?followerusername=${loggedInUsername}&otherusername=${profileUsername}`, {
-                        method: 'POST',
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        },
-                    })
+                let thisButton = e.target;
 
-                    //followBtn.textContent = "Following";
-                    newBtn = CreateUnfollowButton()
-                    divWithBtn.removeChild(followBtn);
-                    divWithBtn.appendChild(newBtn);
-                    Main();
-                });
-            }
+                divWithBtn = e.target.parentNode;
 
-            if (unfollowBtn != null)
-            {
-                unfollowBtn.addEventListener('click', async e => {
-                    divWithBtn = e.target.parentNode;
-                    profileUsername = e.target.parentNode.previousElementSibling.children[1].firstChild.textContent;
+                let profileUsername = e.target.parentNode.previousElementSibling.children[1].firstChild.textContent;
+                let data = await SendFollowRequest(loggedInUsername, profileUsername);
 
-                    let data = await fetch(`/api/users/unfollowuser?followerusername=${loggedInUsername}&otherusername=${profileUsername}`, {
-                        method: 'DELETE',
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        },
-                    })
+                newBtn = CreateUnfollowButton();
+                divWithBtn.removeChild(thisButton);
+                divWithBtn.appendChild(newBtn);
+            });
 
-                    newBtn = CreateFollowButton()
-                    divWithBtn.removeChild(unfollowBtn);
-                    divWithBtn.appendChild(newBtn);
-                    Main();
-                });
-            }
+            testDiv.addEventListener('click', async e => {
+            if (e.target.className != 'unfollow-btn') return;
+
+                let thisButton = e.target;
+
+                divWithBtn = e.target.parentNode;
+                let profileUsername = e.target.parentNode.previousElementSibling.children[1].firstChild.textContent;
+
+                let data = await SendUnfollowRequest(loggedInUsername, profileUsername);
+
+                newBtn = CreateFollowButton()
+                divWithBtn.removeChild(thisButton);
+                divWithBtn.appendChild(newBtn);
+
+            });
+
+
+            
 
         }
 

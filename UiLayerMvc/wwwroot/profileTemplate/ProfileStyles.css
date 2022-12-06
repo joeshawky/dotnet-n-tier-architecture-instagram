@@ -322,4 +322,27 @@ header {
   right: 0px;
 }
 
+.post-img{
+    width: 265px;
+    height: 300px;
+}
 
+.btn-close{
+    position: absolute;
+    background-color: red;
+}
+
+#followers-block {
+    cursor: pointer;
+}
+
+#show-followers-block{
+    position: absolute;
+    height: 250px;
+    width: 1200px;
+    background-color: blue;
+    margin: 10% 50%;
+}
+#following-block{
+    cursor: pointer;
+}

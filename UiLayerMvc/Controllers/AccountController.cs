@@ -178,6 +178,28 @@ public class AccountController : Controller
     {
         return View();
     }
+
+    public IActionResult ViewFollowings (string username)
+    {
+        var followInstances = _followInstanceManager.GetFollowingUsernamesForUser(username);
+        var users = _userManager.GetUsersForUsernameList(followInstances);
+        var usersVm = users
+            .Select(u => _mapper.Map<SuggestedUserModalView>(u))
+            .ToList();
+
+        return View("ViewAccounts", usersVm);
+    }
+    public IActionResult ViewFollowers(string username)
+    {
+        var followInstances = _followInstanceManager.GetFollowersUsernamesForUser(username);
+        var users = _userManager.GetUsersForUsernameList(followInstances);
+        var usersVm = users
+            .Select(u => _mapper.Map<SuggestedUserModalView>(u))
+            .ToList();
+
+        return View("ViewAccounts", usersVm);
+
+    }
     private void UserSignOut()
     {
         HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

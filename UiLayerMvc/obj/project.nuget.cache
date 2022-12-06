@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CvitlIJovfHPappym/slqVA7idNus/fFbGGCkQF3hbHz3iRmgOg6JTuEfXFrwSRw+G0I2/vQb4rFqNrUVapiQA==",
+  "dgSpecHash": "c+SIU114ziWffqpI0hruwk/QqntLo4nRoeX4iw8zXhfuVR6ltE+Sz16IGTOMH6dwh1QcM3jQGu1XiQhSz+D6Ug==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Joe\\Desktop\\instatest\\UiLayerMvc\\UiLayerMvc.csproj",
+  "projectFilePath": "C:\\Users\\Joe\\Desktop\\Latest dotnet insta\\UiLayerMvc\\UiLayerMvc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Joe\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Joe\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

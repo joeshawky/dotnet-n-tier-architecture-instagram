@@ -5,7 +5,7 @@
 }
 
   <head>
-    <link rel="stylesheet" href="~/profileTemplate/ProfileStyles.css" />
+    <link rel="stylesheet" href="~/profileTemplate/ProfileStyles.css" asp-append-version="true"/>
   </head>
   <main>
       <header>
@@ -105,9 +105,9 @@
           @foreach (var post in Model.Posts)
           {
               <div class="gallery-item" >
-                  <a href="/post/delete/@post.PostId" class="btn-close " style="position: absolute; background-color: red"></a>
+                  <a href="/post/delete/@post.PostId" class="btn-close"></a>
                   <a href="/post/view/@post.PostId">
-                        <img alt="gallery-post" style="width: 265px; height: 300px;" src="@post.PostImagePath"/>
+                        <img class="post-img" alt="gallery-post" src="@post.PostImagePath"/>
                  </a>
             </div>
 
