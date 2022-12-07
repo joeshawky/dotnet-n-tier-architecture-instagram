@@ -41,6 +41,24 @@ public class FollowInstanceManager : IFollowInstanceService
         return instance != null;
     }
 
+    public bool IsUserOneFollowingUsertwo(string UserOneUsername, string UserTwoUsername)
+    {
+        var userOneId = GetUserIdByUsername(UserOneUsername);
+        var userTwoId = GetUserIdByUsername(UserTwoUsername);
+
+        var instance = _followInstanceDal.Get(f => f.UserId == userOneId && f.FollowedUserId == userTwoId);
+        return instance != null;
+    }
+
+
+    public int GetUserIdByUsername(string username)
+    {
+        var user = _userDal.Get(u => u.Username == username);
+        if (user is null)
+            throw new Exception("User was not found!!");
+
+        return user.UserId;
+    }
 
     public List<string> GetFollowingUsernamesForUser(string username)
     {

@@ -346,3 +346,76 @@ header {
 #following-block{
     cursor: pointer;
 }
+.testing {
+    visibility: hidden;
+    position: absolute;
+    /*width: 400px;
+    height: 300px;*/
+    width: 500px;
+    height: 400px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 3;
+    /*visibility: hidden;*/
+    overflow-y: scroll;
+}
+
+.testing-grey {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: grey;
+    z-index: 2;
+    opacity: 0.9;
+}
+
+
+.testing::-webkit-scrollbar{
+    display: none;
+}
+.block-title{
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+}
+.title-text{
+    text-align: center;
+    font-size: 30px;
+}
+.testing-block {
+    height: 500px;
+    padding: 0;
+}
+
+
+.block-of-users{
+    width: 100%;
+}
+
+.top-block{
+    display: flex;
+    margin-left: 5px;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.follow-div{
+    margin-top: 3.5%;
+    font-size: 15px;
+}
+.follow-div{
+    margin-left: auto;
+    margin-right: 5px;
+}
+.name-block {
+    margin-left: 20px;
+    margin-top: 50%;
+    /*top: 25%;*/
+}

@@ -5,17 +5,35 @@
 }
 
   <head>
-    <link rel="stylesheet" href="~/profileTemplate/ProfileStyles.css" />
+    <link rel="stylesheet" href="~/profileTemplate/ProfileStyles.css" asp-append-version="true"/>
   </head>
+<div class="testing-grey">
+</div>
   <main>
+      <div class="testing">
+        <div class="block-title">
+            <h1 class="title-text">
+                Followers
+            </h1>
+        </div>
+        <div class="container testing-block">
+            <div class="col-3 block-of-users" id="button-block">
+
+                <div class="card">
+                </div>
+            </div>
+        </div>
+
+    </div>
       <header>
+
         <div class="header-wrap">
           <div class="profile-pic">
             <img src="@Model.UserProfilePicturePath" alt="profile-logo" />
           </div>
           <div class="profile-info">
             <div class="title row">
-              <h2>@Model.Username</h2>
+                    <h2 id="profile-username">@Model.Username</h2>
               <a href="/account/profileEdit?userId=@Model.UserId">
                         <button class="btn-info" style="width: auto; -webkit-text-fill-color: white;">
                             Edit
@@ -26,8 +44,8 @@
               <div class="details row">
                 <ul>
                   <li><span>@Model.PostCount</span> posts</li>
-                  <li><span>xxx</span> followers</li>
-                  <li><span>xxx</span> following</li>
+                <li id="followers-block"><span id="followers-count">@Model.FollowersCount</span> followers</li>
+                <li id="following-block"><span id="following-count">@Model.FollowingCount</span> following</li>
                 </ul>
               </div>
               <div class="descriptions row last">
@@ -114,3 +132,369 @@
         }
       </div>
     </main>
+
+
+@section Scripts{
+    <script>
+
+        function CreateUnfollowButtonForList() {
+            button = document.createElement('button');
+            button.className = 'unfollow-btn';
+            button.textContent = 'following';
+
+            return button;
+        }
+
+        function CreateUnfollowButton() {
+            button = document.createElement('button');
+            button.className = 'unfollow-btn';
+            button.textContent = 'Unfollow';
+
+            return button;
+        }
+
+        function CreateFollowButton() {
+            button = document.createElement('button');
+            button.className = 'follow-btn';
+            button.textContent = 'Follow';
+
+            return button;
+        }
+
+        async function GetLoggedinUsername() {
+            let response = await fetch('/api/users/GetLoggedinUsername')
+
+            if (response.status == 200) return response.text();
+
+        }
+
+        async function GetFollowers(username) {
+            var followers = await fetch(`/api/users/GetFollowers?username=${username}`).then(response => response.json());
+            return followers;
+        }
+
+        async function GetFollowings(username) {
+            var followers = await fetch(`/api/users/GetFollowings?username=${username}`).then(response => response.json());
+            return followers;
+        }
+
+        async function OrganizeFollowers(users, loggedInUser) {
+            document.querySelector('.title-text').textContent = 'Followers';
+            let card = document.querySelector('.card');
+
+            users.forEach(user => {
+                let newDivWithInfo;
+                if (user.username != loggedInUser) {
+
+                    if (user.youFollowUser) {
+                        newDivWithInfo = `<div>
+                                                                <div class="top top-block">
+                                                                    <div class="userDetails" onclick="location.href='/account/profile?userid=${user.userId}'">
+                                                                        <div class="profilepic">
+                                                                            <div class="profile_img">
+                                                                                <div class="image">
+                                                                                    <img src=${user.profilePicturePath} alt="img12" width="50px" height="50px">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div>
+                                                                        <h3 class="name-block">
+                                                                            ${user.username}
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="follow-div">
+                                                                        <button class="unfollow-btn" href="#">
+                                                                            following
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>`;
+                    }
+                    else {
+                        newDivWithInfo = `<div>
+                                                                        <div class="top top-block">
+                                                                            <div class="userDetails" onclick="location.href='/account/profile?userid=${user.userId}'">
+                                                                                <div class="profilepic">
+                                                                                    <div class="profile_img">
+                                                                                        <div class="image">
+                                                                                            <img src=${user.profilePicturePath} alt="img12" width="50px" height="50px">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div>
+                                                                                <h3 class="name-block">
+                                                                                    ${user.username}
+                                                                                </h3>
+                                                                            </div>
+                                                                            <div class="follow-div">
+                                                                                <button class="follow-btn" href="#">
+                                                                                    follow
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>`;
+                    }
+
+
+                    card.innerHTML += newDivWithInfo;
+
+                }
+                else {
+                    newDivWithInfo = `<div>
+                                                        <div class="top top-block">
+                                                            <div class="userDetails" onclick="location.href='/account/profile?userid=${user.userId}'">
+                                                                <div class="profilepic">
+                                                                    <div class="profile_img">
+                                                                        <div class="image">
+                                                                            <img src=${user.profilePicturePath} alt="img12" width="50px" height="50px">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div>
+                                                                <h3 class="name-block">
+                                                                    ${user.username}
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>`;
+                    card.innerHTML += newDivWithInfo;
+                }
+
+
+
+            });
+
+
+
+        }
+
+        async function OrganizeFollowings(users, loggedInUser) {
+            document.querySelector('.title-text').textContent = 'Following';
+            let card = document.querySelector('.card');
+
+            users.forEach(user => {
+                let newDivWithInfo;
+                if (user.username != loggedInUser) {
+                    if (user.youFollowUser) {
+                        newDivWithInfo = `<div>
+                                                                <div class="top top-block">
+                                                                    <div class="userDetails" onclick="location.href='/account/profile?userid=${user.userId}'">
+                                                                        <div class="profilepic">
+                                                                            <div class="profile_img">
+                                                                                <div class="image">
+                                                                                    <img src=${user.profilePicturePath} alt="img12" width="50px" height="50px">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div>
+                                                                        <h3 class="name-block">
+                                                                            ${user.username}
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="follow-div">
+                                                                        <button class="unfollow-btn" href="#">
+                                                                            following
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>`;
+                    }
+                    else {
+                        newDivWithInfo = `<div>
+                                                                <div class="top top-block">
+                                                                    <div class="userDetails" onclick="location.href='/account/profile?userid=${user.userId}'">
+                                                                        <div class="profilepic">
+                                                                            <div class="profile_img">
+                                                                                <div class="image">
+                                                                                    <img src=${user.profilePicturePath} alt="img12" width="50px" height="50px">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div>
+                                                                        <h3 class="name-block">
+                                                                            ${user.username}
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="follow-div">
+                                                                        <button class="follow-btn" href="#">
+                                                                            follow
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>`;
+                    }
+                }
+
+
+                card.innerHTML += newDivWithInfo;
+
+            });
+        }
+
+        async function FollowOtherUser(loggedInUsername, otherUsername) {
+            await fetch(`/api/users/followuser?followerusername=${loggedInUsername}&otherusername=${profileUsername}`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            });
+
+            let button = CreateUnfollowButton();
+
+            let followBtn = document.querySelector('.follow-btn');
+
+            e.target.remove();
+            aboveButtonBlock.appendChild(button);
+            followersCount.textContent = parseInt(followersCount.textContent) + 1;
+        }
+
+        async function Main() {
+            let profileUsername = document.querySelector('#profile-username').textContent;
+            let loggedInUsername = await GetLoggedinUsername();
+
+            let followersBlock = document.querySelector('.testing');
+            let greyBlock = document.querySelector('.testing-grey');
+            let followersButton = document.querySelector('#followers-block');
+            let followingsButton = document.querySelector('#following-block');
+
+            let followersCount = document.querySelector('#followers-count');
+            let followingCount = document.querySelector('#following-count');
+
+            let aboveButtonBlock = document.querySelector('.title');
+
+            let unfollowBtn = document.querySelector('.unfollow-btn');
+
+            let data;
+
+            let listBlock = document.querySelector('.testing-block');
+
+            listBlock.addEventListener('click', async e => {
+                if (e.target.className == 'follow-btn') {
+                    console.log('eneted');
+                    let username = e.target.parentElement.previousElementSibling.children[0].innerText;
+
+                    await fetch(`/api/users/followuser?followerusername=${loggedInUsername}&otherusername=${username}`, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                    });
+
+                    let button = CreateUnfollowButtonForList();
+
+                    let followBtnBlock = e.target.parentElement;
+
+                    e.target.remove();
+                    followBtnBlock.appendChild(button);
+                }
+
+                if (e.target.className == 'unfollow-btn') {
+                    let username = e.target.parentElement.previousElementSibling.children[0].innerText;
+
+                    data = await fetch(`/api/users/unfollowuser?followerusername=${loggedInUsername}&otherusername=${username}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    let button = CreateFollowButton();
+
+                    let followBtnBlock = e.target.parentElement;
+
+                    e.target.remove();
+
+                    followBtnBlock.appendChild(button);
+
+                }
+            });
+
+
+            aboveButtonBlock.addEventListener('click', async e => {
+                if (e.target.className == 'follow-btn') {
+                    data = await fetch(`/api/users/followuser?followerusername=${loggedInUsername}&otherusername=${profileUsername}`, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                    });
+
+                    let button = CreateUnfollowButton();
+
+                    let followBtn = document.querySelector('.follow-btn');
+
+                    e.target.remove();
+                    aboveButtonBlock.appendChild(button);
+                    followersCount.textContent = parseInt(followersCount.textContent) + 1;
+                }
+
+                if (e.target.className == 'unfollow-btn') {
+
+                    data = await fetch(`/api/users/unfollowuser?followerusername=${loggedInUsername}&otherusername=${profileUsername}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    let button = CreateFollowButton();
+
+
+                    aboveButtonBlock.appendChild(button);
+                    e.target.remove();
+
+                    followersCount.textContent = parseInt(followersCount.textContent) - 1;
+
+                }
+            });
+
+
+            followersButton.addEventListener('click', async e => {
+                let followers = await GetFollowers(profileUsername);
+                console.log(followers);
+                OrganizeFollowers(followers, loggedInUsername);
+                followersBlock.style.visibility = "visible";
+                greyBlock.style.visibility = "visible";
+
+            });
+
+            followingsButton.addEventListener('click', async e => {
+                let followings = await GetFollowings(profileUsername);
+                console.log(followings);
+                OrganizeFollowings(followings, loggedInUsername);
+
+
+                followersBlock.style.visibility = "visible";
+                greyBlock.style.visibility = "visible";
+            })
+
+
+            greyBlock.addEventListener('click', e => {
+                let card = document.querySelector('.card');
+                card.innerHTML = "";
+                followersBlock.style.visibility = "hidden";
+                greyBlock.style.visibility = "hidden";
+            });
+
+
+        }
+
+        Main();
+
+    </script>
+}

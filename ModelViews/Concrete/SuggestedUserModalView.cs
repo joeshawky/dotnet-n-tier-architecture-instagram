@@ -7,5 +7,6 @@
         public string ProfilePicturePath { get; set; }
         public int UserId { get; set; }
         public bool FollowsYou { get; set; } = false;
+        public bool YouFollowUser { get; set; } = false;
     }
 }

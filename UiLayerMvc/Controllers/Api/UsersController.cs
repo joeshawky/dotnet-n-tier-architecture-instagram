@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using AutoMapper;
+using BusinessLayer.Concrete;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
@@ -15,6 +16,7 @@ namespace UiLayerMvc.Controllers.Api;
 [ApiController]
 public class UsersController : ControllerBase
 {
+    private readonly IMapper _mapper;
     private readonly UserManager _userManager;
     private readonly ImageManager _imageManager;
     private readonly FollowInstanceManager _followInstanceManager;
@@ -22,14 +24,53 @@ public class UsersController : ControllerBase
     public UsersController(
         IImageDal imageDal,
         IUserDal userDal,
-        IFollowInstanceDal followInstanceDal
+        IFollowInstanceDal followInstanceDal,
+        IMapper mapper
         )
     {
+        _mapper = mapper;
         _imageManager = new ImageManager(imageDal);
         _userManager = new UserManager(userDal, followInstanceDal);
         _followInstanceManager = new FollowInstanceManager(followInstanceDal, userDal);
     }
 
+
+    [HttpGet(nameof(GetFollowers))]
+    public IActionResult GetFollowers(string username)
+    {
+        if (_userManager.DoesUserExist(username) is false)
+            return NotFound("user was not found");
+
+        var followInstances = _followInstanceManager.GetFollowersUsernamesForUser(username);
+        var users = _userManager.GetUsersForUsernameList(followInstances);
+        var usersVm = users
+            .Select(u => _mapper.Map<SuggestedUserModalView>(u))
+            .ToList();
+        usersVm.ForEach(user =>
+        {
+            user.YouFollowUser = _followInstanceManager.IsUserOneFollowingUsertwo(username, user.Username);
+        });
+        return Ok(usersVm);
+
+    }
+    [HttpGet(nameof(GetFollowings))]
+    public IActionResult GetFollowings(string username)
+    {
+        if (_userManager.DoesUserExist(username) is false)
+            return NotFound("user was not found");
+
+        var followInstances = _followInstanceManager.GetFollowingUsernamesForUser(username);
+        var users = _userManager.GetUsersForUsernameList(followInstances);
+        var usersVm = users
+            .Select(u => _mapper.Map<SuggestedUserModalView>(u))
+            .ToList();
+        usersVm.ForEach(user =>
+        {
+            user.YouFollowUser = _followInstanceManager.IsUserOneFollowingUsertwo(username, user.Username);
+        });
+
+        return Ok(usersVm);
+    }
 
     [HttpGet(nameof(GetLoggedInUsername))]
     public IActionResult GetLoggedInUsername()
@@ -54,6 +95,8 @@ public class UsersController : ControllerBase
         if (otherUserFollowers.Contains(followerUsername))
             return BadRequest("User already follows user.");
 
+        if (followerUsername == otherUsername)
+            return BadRequest("User can not follow himself!");
 
         var followInstance = new FollowInstance()
         {
@@ -74,6 +117,9 @@ public class UsersController : ControllerBase
 
         if (otherUserFollowers.Contains(followerUsername) == false)
             return BadRequest("User doesnot follow user");
+
+        if (followerUsername == otherUsername)
+            return BadRequest("User can not unfollow himself!");
 
 
         var followerUserId = _userManager.GetUserId(followerUsername);
@@ -128,40 +174,4 @@ public class UsersController : ControllerBase
         return 0;
     }
 
-
-
-
-
-
-    // GET: api/<UsersController>
-    [HttpGet]
-    public IEnumerable<string> Get()
-    {
-        return new string[] { "value1", "value2" };
-    }
-
-    // GET api/<UsersController>/5
-    [HttpGet("{id}")]
-    public string Get(int id)
-    {
-        return "value";
-    }
-
-    // POST api/<UsersController>
-    [HttpPost]
-    public void Post([FromBody] string value)
-    {
-    }
-
-    // PUT api/<UsersController>/5
-    [HttpPut("{id}")]
-    public void Put(int id, [FromBody] string value)
-    {
-    }
-
-    // DELETE api/<UsersController>/5
-    [HttpDelete("{id}")]
-    public void Delete(int id)
-    {
-    }
 }

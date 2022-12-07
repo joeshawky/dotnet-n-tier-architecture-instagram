@@ -25,6 +25,10 @@ public class UserManager : IUserService
         return _userDal.List();
     }
 
+    public bool DoesUserExist(string username)
+    {
+        return _userDal.List(u => u.Username == username).Any();
+    }
     public List<string> GetUsernames(List<int> userids)
     {
         var usernames = new List<string>();
