@@ -36,37 +36,46 @@ public class UsersController : ControllerBase
 
 
     [HttpGet(nameof(GetFollowers))]
-    public IActionResult GetFollowers(string username)
+    public IActionResult GetFollowers(string profileUsername, string? loggedInUsername)
     {
-        if (_userManager.DoesUserExist(username) is false)
+        if (_userManager.DoesUserExist(profileUsername) is false)
             return NotFound("user was not found");
 
-        var followInstances = _followInstanceManager.GetFollowersUsernamesForUser(username);
+        var followInstances = _followInstanceManager.GetFollowersUsernamesForUser(profileUsername);
         var users = _userManager.GetUsersForUsernameList(followInstances);
         var usersVm = users
             .Select(u => _mapper.Map<SuggestedUserModalView>(u))
             .ToList();
+
+        if (loggedInUsername is null)
+            return Ok(usersVm);
+
+
         usersVm.ForEach(user =>
         {
-            user.YouFollowUser = _followInstanceManager.IsUserOneFollowingUsertwo(username, user.Username);
+            user.YouFollowUser = _followInstanceManager.IsUserOneFollowingUsertwo(loggedInUsername, user.Username);
         });
         return Ok(usersVm);
 
     }
     [HttpGet(nameof(GetFollowings))]
-    public IActionResult GetFollowings(string username)
+    public IActionResult GetFollowings(string profileUsername, string? loggedInUsername)
     {
-        if (_userManager.DoesUserExist(username) is false)
+        if (_userManager.DoesUserExist(profileUsername) is false)
             return NotFound("user was not found");
 
-        var followInstances = _followInstanceManager.GetFollowingUsernamesForUser(username);
+        var followInstances = _followInstanceManager.GetFollowingUsernamesForUser(profileUsername);
         var users = _userManager.GetUsersForUsernameList(followInstances);
         var usersVm = users
             .Select(u => _mapper.Map<SuggestedUserModalView>(u))
             .ToList();
+
+        if (loggedInUsername is null)
+            return Ok(usersVm);
+
         usersVm.ForEach(user =>
         {
-            user.YouFollowUser = _followInstanceManager.IsUserOneFollowingUsertwo(username, user.Username);
+            user.YouFollowUser = _followInstanceManager.IsUserOneFollowingUsertwo(loggedInUsername, user.Username);
         });
 
         return Ok(usersVm);

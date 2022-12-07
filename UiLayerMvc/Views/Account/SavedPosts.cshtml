@@ -168,13 +168,13 @@
 
         }
 
-        async function GetFollowers(username) {
-            var followers = await fetch(`/api/users/GetFollowers?username=${username}`).then(response => response.json());
+        async function GetFollowers(profileUsername, loggedInUsername) {
+            var followers = await fetch(`/api/users/GetFollowers?profileusername=${profileUsername}&loggedInUsername=${loggedInUsername}`).then(response => response.json());
             return followers;
         }
 
-        async function GetFollowings(username) {
-            var followers = await fetch(`/api/users/GetFollowings?username=${username}`).then(response => response.json());
+        async function GetFollowings(profileUsername, loggedInUsername) {
+            var followers = await fetch(`/api/users/GetFollowings?profileusername=${profileUsername}&loggedInUsername=${loggedInUsername}`).then(response => response.json());
             return followers;
         }
 
@@ -465,7 +465,7 @@
 
 
             followersButton.addEventListener('click', async e => {
-                let followers = await GetFollowers(profileUsername);
+                let followers = await GetFollowers(profileUsername, loggedInUsername);
                 console.log(followers);
                 OrganizeFollowers(followers, loggedInUsername);
                 followersBlock.style.visibility = "visible";
@@ -474,7 +474,7 @@
             });
 
             followingsButton.addEventListener('click', async e => {
-                let followings = await GetFollowings(profileUsername);
+                let followings = await GetFollowings(profileUsername, loggedInUsername);
                 console.log(followings);
                 OrganizeFollowings(followings, loggedInUsername);
 
